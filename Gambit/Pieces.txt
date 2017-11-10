@@ -1,0 +1,78 @@
+    uint white  = 1;
+    uint black  = 2;
+
+    uint pawn   = 4;
+    uint knight = 8;
+    uint bishop = 16;
+    uint rook   = 32;
+    uint queen  = 64;
+    uint king   = 128;
+
+    std::bitset<8> bitset_white  = white;   // 1
+    std::bitset<8> bitset_black  = black;   // 2
+
+    std::bitset<8> bitset_pawn   = pawn;    // 4
+    std::bitset<8> bitset_knight = knight;  // 8
+    std::bitset<8> bitset_bishop = bishop;  // 16
+    std::bitset<8> bitset_rook   = rook;    // 32
+    std::bitset<8> bitset_queen  = queen;   // 64
+    std::bitset<8> bitset_king   = king;    // 128
+
+    std::cout << bitset_white  << " White Bits"  << std::endl;
+    std::cout << bitset_black  << " Black Bits"  << std::endl;
+    std::cout << bitset_pawn   << " Pawn Bits"   << std::endl;
+    std::cout << bitset_knight << " Knight Bits" << std::endl;
+    std::cout << bitset_bishop << " Bishop Bits" << std::endl;
+    std::cout << bitset_rook   << " Rook Bits"   << std::endl;
+    std::cout << bitset_queen  << " Queen Bits"  << std::endl;
+    std::cout << bitset_king   << " King Bits"   << std::endl;
+
+    // Whites
+    uint white_pawn   = white | pawn;     // 5
+    uint white_knight = white | knight;   // 9
+    uint white_bishop = white | bishop;   // 17
+    uint white_rook   = white | rook;     // 33
+    uint white_queen  = white | queen;    // 65
+    uint white_king   = white | king;     // 129
+
+
+    std::bitset<8> bitset_white_pawn   = white_pawn;
+    std::bitset<8> bitset_white_knight = white_knight;
+    std::bitset<8> bitset_white_bishop = white_bishop;
+    std::bitset<8> bitset_white_rook   = white_rook;
+    std::bitset<8> bitset_white_queen  = white_queen;
+    std::bitset<8> bitset_white_king   = white_king;
+
+    // Blacks
+    uint black_pawn     = black | pawn;     // 6
+    uint black_knight   = black | knight;   // 10
+    uint black_bishop   = black | bishop;   // 18
+    uint black_rook     = black | rook;     // 34
+    uint black_queen    = black | queen;    // 66
+    uint black_king     = black | king;     // 130
+
+
+    std::bitset<8> bitset_black_pawn   = black_pawn;
+    std::bitset<8> bitset_black_knight = black_knight;
+    std::bitset<8> bitset_black_bishop = black_bishop;
+    std::bitset<8> bitset_black_rook   = black_rook;
+    std::bitset<8> bitset_black_queen  = black_queen;
+    std::bitset<8> bitset_black_king   = black_king;
+
+    std::cout << std::endl;
+
+    std::cout << bitset_white_pawn   << " " << (int) bitset_white_pawn.to_ulong()   << " White Pawn"   << std::endl;
+    std::cout << bitset_white_knight << " " << (int) bitset_white_knight.to_ulong() << " White Knight" << std::endl;
+    std::cout << bitset_white_bishop << " " << (int) bitset_white_bishop.to_ulong() << " White Bishop" << std::endl;
+    std::cout << bitset_white_rook   << " " << (int) bitset_white_rook.to_ulong()   << " White Rook"   << std::endl;
+    std::cout << bitset_white_queen  << " " << (int) bitset_white_queen.to_ulong()  << " White Queen"  << std::endl;
+    std::cout << bitset_white_king   << " " << (int) bitset_white_king.to_ulong()   << " White King"   << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << bitset_black_pawn   << " " << (int) bitset_black_pawn.to_ulong()   << " Black Pawn"   << std::endl;
+    std::cout << bitset_black_knight << " " << (int) bitset_black_knight.to_ulong() << " Black Knight" << std::endl;
+    std::cout << bitset_black_bishop << " " << (int) bitset_black_bishop.to_ulong() << " Black Bishop" << std::endl;
+    std::cout << bitset_black_rook   << " " << (int) bitset_black_rook.to_ulong()   << " Black Rook"   << std::endl;
+    std::cout << bitset_black_queen  << " " << (int) bitset_black_queen.to_ulong()  << " Black Queen"  << std::endl;
+    std::cout << bitset_black_king   << " " << (int) bitset_black_king.to_ulong()   << " Black King"   << std::endl;
