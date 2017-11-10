@@ -15,6 +15,11 @@ public:
         QUEEN,
         KING
     };
+
+    enum Color {
+        WHITE,
+        BLACK
+    };
 };
 
 #endif //GAMBIT_ENUMS_H

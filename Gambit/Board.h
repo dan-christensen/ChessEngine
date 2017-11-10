@@ -14,13 +14,14 @@
 class Board {
 public:
     Enums::Piece boardType;
+    Enums::Color boardColor;
 
     unsigned long board;
     unsigned long bitMask;
     std::bitset<64> bitBoard;
 
     Board();
-    Board(Enums::Piece boardType, unsigned long boardValue);
+    Board(Enums::Color boardColor,Enums::Piece boardType, unsigned long boardValue);
     bool setBitBoard();
     bool setBitMask();
     bool placePiece(std::string rank, std::string file);

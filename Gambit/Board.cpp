@@ -10,9 +10,10 @@ Board::Board() {
     setBitBoard();
 }
 
-Board::Board(Enums::Piece boardType, unsigned long boardValue) {
+Board::Board(Enums::Color boardColor, Enums::Piece boardType, unsigned long boardValue) {
     this->board = boardValue;
     this->boardType = boardType;
+    this->boardColor = boardColor;
     setBitBoard();
 }
 
@@ -38,10 +39,65 @@ bool Board::placePiece(std::string rank, std::string file) {
     int g = f - 1;
     int h = g - 1;
 
-    piece = piece << d;
+    int localRank = 0;
+    int localFile = 0;
 
-    for (int i = 0; i < 4 - 1; ++i) {
-        piece = piece >> 8;
+    if (rank == "A" || rank == "a"){
+        localRank = a;
+    }
+    if (rank == "B" || rank == "b"){
+        localRank = b;
+    }
+    if (rank == "C" || rank == "c"){
+        localRank = c;
+    }
+    if (rank == "D" || rank == "d"){
+        localRank = d;
+    }
+    if (rank == "E" || rank == "e"){
+        localRank = e;
+    }
+    if (rank == "F" || rank == "f"){
+        localRank = f;
+    }
+    if (rank == "G" || rank == "g"){
+        localRank = g;
+    }
+    if (rank == "H" || rank == "h"){
+        localRank = h;
+    }
+
+    if (file == "1"){
+        localFile = 1;
+    }
+    if (file == "2"){
+        localFile = 2;
+    }
+    if (file == "3"){
+        localFile = 3;
+    }
+    if (file == "4"){
+        localFile = 4;
+    }
+    if (file == "5"){
+        localFile = 5;
+    }
+    if (file == "6"){
+        localFile = 6;
+    }
+    if (file == "7"){
+        localFile = 7;
+    }
+    if (file == "8"){
+        localFile = 8;
+    }
+
+    piece = piece << localRank;
+
+    if (localFile > 1){
+        for (int i = 0; i < localFile - 1; ++i) {
+            piece = piece >> 8;
+        }
     }
 
     board = board | piece;
