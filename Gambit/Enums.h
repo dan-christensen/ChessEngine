@@ -13,12 +13,14 @@ public:
         BISHOP,
         ROOK,
         QUEEN,
-        KING
+        KING,
+        PIECE_DEFAULT
     };
 
     enum Color {
         WHITE,
-        BLACK
+        BLACK,
+        COLOR_DEFAULT
     };
 };
 
