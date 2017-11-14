@@ -10,7 +10,7 @@ Board::Board() {
     setBitBoard();
 }
 
-Board::Board(Enums::Color boardColor, Enums::Piece boardType, unsigned long boardValue) {
+Board::Board(Enums::Color boardColor, Enums::Piece boardType, unsigned long long boardValue) {
     this->board = boardValue;
     this->boardType = boardType;
     this->boardColor = boardColor;
@@ -28,7 +28,7 @@ bool Board::setBitMask() {
 }
 
 bool Board::placePiece(std::string rank, std::string file) {
-    unsigned long piece = 1;
+    unsigned long long piece = 1;
 
     int a = 63;
     int b = a - 1;

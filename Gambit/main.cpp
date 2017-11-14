@@ -67,11 +67,5 @@ int main() {
     Display display;
     display.DrawBoard(mainBoard);
 
-    unsigned long l = 0b1111111111111111111111111111111111111111111111111111111111111111;
-    unsigned long long l2 = 0b1111111111111111111111111111111111111111111111111111111111111111;
-//    unsigned long long l2 = 0b11111111111111111111111111111111;
-    std::cout << l << std::endl;
-    std::cout << l2 << std::endl;
-
     return 0;
 }
