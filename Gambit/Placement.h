@@ -6,8 +6,11 @@
 #define GAMBIT_PLACEMENT_H
 
 
-class Placement {
+#include "Board.h"
 
+class Placement {
+public:
+    bool placePiece(Board* board, std::string rank, std::string file);
 };
 
 

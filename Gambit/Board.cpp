@@ -101,7 +101,8 @@ bool Board::placePiece(std::string rank, std::string file) {
     }
 
     board = board | piece;
-    return false;
+    setBitBoard();
+    return true;
 }
 
 

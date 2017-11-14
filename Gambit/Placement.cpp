@@ -3,3 +3,7 @@
 //
 
 #include "Placement.h"
+
+bool Placement::placePiece(Board *board, std::string rank, std::string file) {
+    return board->placePiece(rank, file);
+}

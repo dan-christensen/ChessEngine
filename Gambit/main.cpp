@@ -1,12 +1,15 @@
 #include "Board.h"
 #include "Enums.h"
 #include "Display.h"
+#include "Placement.h"
 
 #include <iostream>
 #include <bitset>
 #include <vector>
 
 int main() {
+    Placement placement;
+
     Board *mainBoard = new Board();
     Board *whitePawnBoard = new Board(Enums::WHITE, Enums::PAWN,
                                       0b0000000011111111000000000000000000000000000000000000000000000000);
@@ -53,11 +56,10 @@ int main() {
         mainBoard->board = mainBoard->board | board->board;
     }
 
-    mainBoard->placePiece("H", "8");
-    mainBoard->placePiece("d", "4");
-    mainBoard->placePiece("e", "a");
-    mainBoard->placePiece("f", "2");
-    mainBoard->setBitBoard();
+    placement.placePiece(mainBoard, "H", "8");
+    placement.placePiece(mainBoard, "d", "4");
+    placement.placePiece(mainBoard, "e", "a");
+    placement.placePiece(mainBoard, "f", "2");
 
 //    std::cout << mainBoard->bitBoard << std::endl;
 //    std::cout << mainBoard->board << std::endl;
