@@ -47,6 +47,7 @@ int main() {
 //    placement.placePiece(mainBoard, "e", "a");
 //    placement.placePiece(mainBoard, "f", "2");
 
+
 //    std::cout << mainBoard->bitBoard << std::endl;
 //    std::cout << mainBoard->board << std::endl;
 
