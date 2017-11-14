@@ -9,12 +9,16 @@ bool Display::DrawBoard(Board *board) {
 
     for (int j = 0; j < 8; ++j) {
         for (int i = index; i > index - 8; --i) {
-            std::cout << board->bitBoard[i];
-//            std::cout << " " << i;
+            if (board->bitBoard[i]) {
+                std::cout << 1;
+            } else {
+                std::cout << ".";
+            }
         }
         index += 8;
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 
     return true;
 }

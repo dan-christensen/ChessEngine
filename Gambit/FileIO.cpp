@@ -4,20 +4,20 @@
 
 #include "FileIO.h"
 
-bool FileIO::parseFile(std::string move, std::vector<Board*>* allBoards) {
+bool FileIO::parseFile(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
     std::string input = move;
     for (auto & c: input) c = toupper(c);
 
     std::regex placementPattern("([KQBNRP])([DL])(([A-H])([1-8]))");
 
     if (std::regex_match(input, placementPattern)){
-        parsePlacement(input, allBoards);
+        parsePlacement(input, allBoards, mainBoard);
     }
 
     return true;
 }
 
-bool FileIO::parsePlacement(std::string move, std::vector<Board*>* allBoards) {
+bool FileIO::parsePlacement(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
     Enums::Color color = Enums::COLOR_DEFAULT;
     Enums::Piece piece = Enums::PIECE_DEFAULT;
     Board* board = nullptr;
@@ -67,14 +67,12 @@ bool FileIO::parsePlacement(std::string move, std::vector<Board*>* allBoards) {
     std::string rank = move.substr(2, 1);
     std::string file = move.substr(3);
 
-    std::cout << rank << std::endl;
-    std::cout << file << std::endl;
-
-    board->placePiece(rank, file);
+    placement->placePiece(board, rank, file);
+    placement->combineBoards(allBoards, mainBoard);
 
     return true;
 }
 
-bool FileIO::pareseMove(std::string move, std::vector<Board*>* allBoards) {
+bool FileIO::pareseMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
     return false;
 }

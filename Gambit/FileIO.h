@@ -8,6 +8,7 @@
 
 #include "Enums.h"
 #include "Board.h"
+#include "Placement.h"
 
 #include <string>
 #include <regex>
@@ -16,11 +17,13 @@
 
 class FileIO {
 public:
-    bool parseFile(std::string move, std::vector<Board*>* allBoards);
+    bool parseFile(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
 
 private:
-    bool parsePlacement(std::string move, std::vector<Board*>* allBoards);
-    bool pareseMove(std::string move, std::vector<Board*>* allBoards);
+    bool parsePlacement(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
+    bool pareseMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
+
+    Placement* placement;
 
 };
 
