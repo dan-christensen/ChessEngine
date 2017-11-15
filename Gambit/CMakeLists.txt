@@ -3,5 +3,5 @@ project(Gambit)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp Board.cpp Board.h Display.cpp Display.h Enums.h Placement.cpp Placement.h FileIO.cpp FileIO.h)
+set(SOURCE_FILES main.cpp Board.cpp Board.h Display.cpp Display.h Enums.h Placement.cpp Placement.h FileIO.cpp FileIO.h Movement.cpp Movement.h)
 add_executable(Gambit ${SOURCE_FILES})

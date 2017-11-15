@@ -21,7 +21,7 @@ public:
 
 private:
     bool parsePlacement(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
-    bool pareseMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
+    bool paresMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
 
     Placement* placement;
 
