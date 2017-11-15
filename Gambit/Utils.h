@@ -6,7 +6,7 @@
 #define GAMBIT_UTILS_H
 
 
-#include "Gambit/Enums.h"
+#include "Enums.h"
 
 class Utils {
 public:

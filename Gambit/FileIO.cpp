@@ -79,19 +79,29 @@ bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Boa
 
 bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
     Board* tempBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
+    Board* moveBoard = nullptr;
     Piece piece;
     Color color;
     std::string startRank = move.substr(0, 1);
     std::string startFile = move.substr(1, 1);
     std::string endRank = move.substr(2, 1);
     std::string endFile = move.substr(3, 1);
-    std::cout << startRank << std::endl;
-    std::cout << startFile << std::endl;
-    std::cout << endRank << std::endl;
-    std::cout << endFile << std::endl;
 
     tempBoard->placePiece(startRank, startFile);
-    std::cout << tempBoard->bitBoard << std::endl;
 
-    return false;
+    for (Board* board : allBoards) {
+        unsigned long long temp = tempBoard->board & board->board;
+        if (tempBoard->board == temp) {
+            moveBoard = board;
+            break;
+        }
+    }
+
+    if (moveBoard == nullptr) {
+        return false;
+    }
+
+    std::cout << PieceEnum::pieceToString(moveBoard->boardType) << std::endl;
+
+    return true;
 }

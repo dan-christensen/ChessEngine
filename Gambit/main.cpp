@@ -52,10 +52,10 @@ int main() {
 //    std::cout << mainBoard->board << std::endl;
 
     FileIO file;
-//    file.parseFile("PLA1", allBoards, mainBoard);
-//    file.parseFile("NLA3", allBoards, mainBoard);
-//    file.parseFile("qdf4", allBoards, mainBoard);
-    file.parseFile("A1H8", allBoards, mainBoard);
+    file.parseFile("PLA1", allBoards, mainBoard);
+    file.parseFile("NLA3", allBoards, mainBoard);
+    file.parseFile("QDF4", allBoards, mainBoard);
+    file.parseFile("A3H8", allBoards, mainBoard);
 
     Display display;
 //    display.DrawBoard(whitePawnBoard);
