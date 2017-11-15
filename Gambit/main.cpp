@@ -11,21 +11,21 @@
 int main() {
     Placement placement;
 
-    Board* mainBoard = new Board(Enums::COLOR_DEFAULT, Enums::PIECE_DEFAULT, 0);
+    Board* mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
 
-    Board* whitePawnBoard = new Board(Enums::WHITE, Enums::PAWN, 0);
-    Board* whiteKnightBoard = new Board(Enums::WHITE, Enums::KNIGHT, 0);
-    Board* whiteBishopBoard = new Board(Enums::WHITE, Enums::BISHOP, 0);
-    Board* whiteRookBoard = new Board(Enums::WHITE, Enums::ROOK, 0);
-    Board* whiteQueenBoard = new Board(Enums::WHITE, Enums::QUEEN, 0);
-    Board* whiteKingBoard = new Board(Enums::WHITE, Enums::KING, 0);
+    Board* whitePawnBoard = new Board(WHITE, PAWN, 0);
+    Board* whiteKnightBoard = new Board(WHITE, KNIGHT, 0);
+    Board* whiteBishopBoard = new Board(WHITE, BISHOP, 0);
+    Board* whiteRookBoard = new Board(WHITE, ROOK, 0);
+    Board* whiteQueenBoard = new Board(WHITE, QUEEN, 0);
+    Board* whiteKingBoard = new Board(WHITE, KING, 0);
 
-    Board* blackPawnBoard = new Board(Enums::BLACK, Enums::PAWN, 0);
-    Board* blackKnightBoard = new Board(Enums::BLACK, Enums::KNIGHT, 0);
-    Board* blackBishopBoard = new Board(Enums::BLACK, Enums::BISHOP, 0);
-    Board* blackRookBoard = new Board(Enums::BLACK, Enums::ROOK, 0);
-    Board* blackQueenBoard = new Board(Enums::BLACK, Enums::QUEEN, 0);
-    Board* blackKingBoard = new Board(Enums::BLACK, Enums::KING, 0);
+    Board* blackPawnBoard = new Board(BLACK, PAWN, 0);
+    Board* blackKnightBoard = new Board(BLACK, KNIGHT, 0);
+    Board* blackBishopBoard = new Board(BLACK, BISHOP, 0);
+    Board* blackRookBoard = new Board(BLACK, ROOK, 0);
+    Board* blackQueenBoard = new Board(BLACK, QUEEN, 0);
+    Board* blackKingBoard = new Board(BLACK, KING, 0);
 
     std::vector<Board*> allBoards;
     allBoards.push_back(whitePawnBoard);
@@ -52,9 +52,10 @@ int main() {
 //    std::cout << mainBoard->board << std::endl;
 
     FileIO file;
-    file.parseFile("PLA1", &allBoards, mainBoard);
-    file.parseFile("NLA3", &allBoards, mainBoard);
-    file.parseFile("qdf4", &allBoards, mainBoard);
+//    file.parseFile("PLA1", allBoards, mainBoard);
+//    file.parseFile("NLA3", allBoards, mainBoard);
+//    file.parseFile("qdf4", allBoards, mainBoard);
+    file.parseFile("A1H8", allBoards, mainBoard);
 
     Display display;
 //    display.DrawBoard(whitePawnBoard);

@@ -5,23 +5,20 @@
 #ifndef GAMBIT_ENUMS_H
 #define GAMBIT_ENUMS_H
 
-class Enums {
-public:
-    enum Piece {
-        PAWN,
-        KNIGHT,
-        BISHOP,
-        ROOK,
-        QUEEN,
-        KING,
-        PIECE_DEFAULT
-    };
+enum Piece {
+    PAWN,
+    KNIGHT,
+    BISHOP,
+    ROOK,
+    QUEEN,
+    KING,
+    PIECE_DEFAULT
+};
 
-    enum Color {
-        WHITE,
-        BLACK,
-        COLOR_DEFAULT
-    };
+enum Color {
+    WHITE,
+    BLACK,
+    COLOR_DEFAULT
 };
 
 #endif //GAMBIT_ENUMS_H

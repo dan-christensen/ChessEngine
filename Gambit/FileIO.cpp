@@ -4,7 +4,7 @@
 
 #include "FileIO.h"
 
-bool FileIO::parseFile(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
+bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
     std::string input = move;
     for (auto & c: input) c = toupper(c);
 
@@ -21,44 +21,44 @@ bool FileIO::parseFile(std::string move, std::vector<Board*>* allBoards, Board* 
     return true;
 }
 
-bool FileIO::parsePlacement(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
-    Enums::Color color = Enums::COLOR_DEFAULT;
-    Enums::Piece piece = Enums::PIECE_DEFAULT;
+bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
+    Color color = COLOR_DEFAULT;
+    Piece piece = PIECE_DEFAULT;
     Board* board = nullptr;
 
     switch (move[0]){
         case 'P':
-            piece = Enums::PAWN;
+            piece = PAWN;
             break;
         case 'N':
-            piece = Enums::KNIGHT;
+            piece = KNIGHT;
             break;
         case 'B':
-            piece = Enums::BISHOP;
+            piece = BISHOP;
             break;
         case 'R':
-            piece = Enums::ROOK;
+            piece = ROOK;
             break;
         case 'Q':
-            piece = Enums::QUEEN;
+            piece = QUEEN;
             break;
         case 'K':
-            piece = Enums::KING;
+            piece = KING;
             break;
         default:break;
     }
 
     switch (move[1]){
         case 'L':
-            color = Enums::WHITE;
+            color = WHITE;
             break;
         case 'D':
-            color = Enums::BLACK;
+            color = BLACK;
             break;
         default:break;
     }
 
-    for (Board* b : *allBoards){
+    for (Board* b : allBoards){
         if (b->boardType == piece && b->boardColor == color){
             board = b;
         }
@@ -77,6 +77,21 @@ bool FileIO::parsePlacement(std::string move, std::vector<Board*>* allBoards, Bo
     return true;
 }
 
-bool FileIO::paresMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard) {
+bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
+    Board* tempBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
+    Piece piece;
+    Color color;
+    std::string startRank = move.substr(0, 1);
+    std::string startFile = move.substr(1, 1);
+    std::string endRank = move.substr(2, 1);
+    std::string endFile = move.substr(3, 1);
+    std::cout << startRank << std::endl;
+    std::cout << startFile << std::endl;
+    std::cout << endRank << std::endl;
+    std::cout << endFile << std::endl;
+
+    tempBoard->placePiece(startRank, startFile);
+    std::cout << tempBoard->bitBoard << std::endl;
+
     return false;
 }

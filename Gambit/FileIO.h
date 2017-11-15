@@ -17,11 +17,11 @@
 
 class FileIO {
 public:
-    bool parseFile(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
+    bool parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
 
 private:
-    bool parsePlacement(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
-    bool paresMove(std::string move, std::vector<Board*>* allBoards, Board* mainBoard);
+    bool parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    bool paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
 
     Placement* placement;
 

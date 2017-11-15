@@ -28,22 +28,22 @@ bool Display::DrawBoard(std::vector<Board *> allBoards) {
     for (Board *board : allBoards) {
         switch (board->boardType) {
 
-            case Enums::PAWN:
+            case PAWN:
                 token = 'P';
                 break;
-            case Enums::KNIGHT:
+            case KNIGHT:
                 token = 'N';
                 break;
-            case Enums::BISHOP:
+            case BISHOP:
                 token = 'B';
                 break;
-            case Enums::ROOK:
+            case ROOK:
                 token = 'R';
                 break;
-            case Enums::QUEEN:
+            case QUEEN:
                 token = 'Q';
                 break;
-            case Enums::KING:
+            case KING:
                 token = 'K';
                 break;
         }

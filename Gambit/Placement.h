@@ -12,7 +12,7 @@
 class Placement {
 public:
     bool placePiece(Board* board, std::string rank, std::string file);
-    bool combineBoards(std::vector<Board*>* allBoards, Board* mainBoard);
+    bool combineBoards(std::vector<Board*> allBoards, Board* mainBoard);
 };
 
 

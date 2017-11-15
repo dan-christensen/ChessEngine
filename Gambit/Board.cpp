@@ -10,7 +10,7 @@ Board::Board() {
     setBitBoard();
 }
 
-Board::Board(Enums::Color boardColor, Enums::Piece boardType, unsigned long long boardValue) {
+Board::Board(Color boardColor, Piece boardType, unsigned long long boardValue) {
     this->board = boardValue;
     this->boardType = boardType;
     this->boardColor = boardColor;
