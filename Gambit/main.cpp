@@ -57,11 +57,11 @@ int main() {
 
     //Placement
     file.parseFile("PLA1", allBoards, mainBoard);
-    file.parseFile("PLF3", allBoards, mainBoard);
-    file.parseFile("PLB6", allBoards, mainBoard);
-    file.parseFile("PLG4", allBoards, mainBoard);
-    file.parseFile("NLA3", allBoards, mainBoard);
-    file.parseFile("QDF4", allBoards, mainBoard);
+//    file.parseFile("PLF3", allBoards, mainBoard);
+//    file.parseFile("PLB6", allBoards, mainBoard);
+//    file.parseFile("PLG4", allBoards, mainBoard);
+//    file.parseFile("NLA3", allBoards, mainBoard);
+//    file.parseFile("QDF4", allBoards, mainBoard);
 
     //Movements
     file.parseFile("A1H8", allBoards, mainBoard);

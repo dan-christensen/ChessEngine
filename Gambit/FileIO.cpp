@@ -6,15 +6,14 @@
 
 bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
     std::string input = move;
-    for (auto & c: input) c = toupper(c);
+    for (auto& c: input) c = toupper(c);
 
     std::regex placementPattern("([KQBNRP])([DL])(([A-H])([1-8]))");
     std::regex movementPattern("(([A-H])([1-8])([A-H])([1-8]))\\*?");
 
-    if (std::regex_match(input, placementPattern)){
+    if (std::regex_match(input, placementPattern)) {
         parsePlacement(input, allBoards, mainBoard);
-    }
-    else if (std::regex_match(input, movementPattern)) {
+    } else if (std::regex_match(input, movementPattern)) {
         paresMove(input, allBoards, mainBoard);
     }
 
@@ -22,49 +21,11 @@ bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* m
 }
 
 bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
-    Color color = COLOR_DEFAULT;
-    Piece piece = PIECE_DEFAULT;
-    Board* board = nullptr;
+    Piece piece = Utils::getPiece(move[0]);
+    Color color = Utils::getColor(move[1]);
+    Board* board = Utils::getBoard(allBoards, color, piece);
 
-    switch (move[0]){
-        case 'P':
-            piece = PAWN;
-            break;
-        case 'N':
-            piece = KNIGHT;
-            break;
-        case 'B':
-            piece = BISHOP;
-            break;
-        case 'R':
-            piece = ROOK;
-            break;
-        case 'Q':
-            piece = QUEEN;
-            break;
-        case 'K':
-            piece = KING;
-            break;
-        default:break;
-    }
-
-    switch (move[1]){
-        case 'L':
-            color = WHITE;
-            break;
-        case 'D':
-            color = BLACK;
-            break;
-        default:break;
-    }
-
-    for (Board* b : allBoards){
-        if (b->boardType == piece && b->boardColor == color){
-            board = b;
-        }
-    }
-
-    if (board == nullptr){
+    if (board == nullptr) {
         return false;
     }
 
@@ -103,7 +64,7 @@ bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* m
         return false;
     }
 
-   std::cout << ColorEnum::colorToString(color) << " " << PieceEnum::pieceToString(piece) << std::endl;
+    std::cout << ColorEnum::colorToString(color) << " " << PieceEnum::pieceToString(piece) << std::endl;
 
     return true;
 }

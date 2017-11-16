@@ -9,6 +9,7 @@
 #include "Enums.h"
 #include "Board.h"
 #include "Placement.h"
+#include "Utils.h"
 
 #include <string>
 #include <regex>

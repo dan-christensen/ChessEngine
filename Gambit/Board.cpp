@@ -105,4 +105,8 @@ bool Board::placePiece(std::string rank, std::string file) {
     return true;
 }
 
+bool Board::movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
+    return true;
+}
+
 
