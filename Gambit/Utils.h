@@ -16,6 +16,7 @@ public:
     static Color getColor(char colorToken);
     static bool combineBoards(std::vector<Board*> allBoards, Board* mainBoard);
     static Board* getBoard(std::vector<Board*> allBoards, Color color, Piece piece);
+    static int getPieceLocation(std::string rank, std::string file);
 };
 
 
