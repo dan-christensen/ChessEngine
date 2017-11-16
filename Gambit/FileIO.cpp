@@ -33,7 +33,7 @@ bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Boa
     std::string file = move.substr(3);
 
     placement->placePiece(board, rank, file);
-    placement->combineBoards(allBoards, mainBoard);
+    Utils::combineBoards(allBoards, mainBoard);
 
     return true;
 }
@@ -64,7 +64,10 @@ bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* m
         return false;
     }
 
+    moveBoard->movePiece(startRank, startFile, endRank, endFile);
+
     std::cout << ColorEnum::colorToString(color) << " " << PieceEnum::pieceToString(piece) << std::endl;
 
+    Utils::combineBoards(allBoards, mainBoard);
     return true;
 }

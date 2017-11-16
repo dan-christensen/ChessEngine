@@ -31,7 +31,7 @@ Piece Utils::getPiece(char pieceToken) {
 }
 
 Color Utils::getColor(char colorToken) {
-    switch (colorToken){
+    switch (colorToken) {
         case 'L':
         case 'l':
             return WHITE;
@@ -41,6 +41,14 @@ Color Utils::getColor(char colorToken) {
         default:
             return COLOR_DEFAULT;
     }
+}
+
+bool Utils::combineBoards(std::vector<Board*> allBoards, Board* mainBoard) {
+    for (Board* board : allBoards) {
+        mainBoard->board = mainBoard->board | board->board;
+    }
+    mainBoard->setBitBoard();
+    return true;
 }
 
 Board* Utils::getBoard(std::vector<Board*> allBoards, Color color, Piece piece) {

@@ -25,6 +25,7 @@ public:
     bool setBitBoard();
     bool setBitMask();
     bool placePiece(std::string rank, std::string file);
+    bool removePiece(std::string rank, std::string file);
     bool movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile);
 
 };
