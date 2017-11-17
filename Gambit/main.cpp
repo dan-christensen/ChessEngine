@@ -62,5 +62,8 @@ int main() {
 
     display.DrawBoard(mainBoard);
 
+    char c = 201;
+    std::cout << c << std::endl;
+
     return 0;
 }
