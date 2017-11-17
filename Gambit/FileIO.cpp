@@ -66,8 +66,6 @@ bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* m
 
     moveBoard->movePiece(startRank, startFile, endRank, endFile);
 
-    std::cout << ColorEnum::colorToString(color) << " " << PieceEnum::pieceToString(piece) << std::endl;
-
     Utils::combineBoards(allBoards, mainBoard);
     return true;
 }

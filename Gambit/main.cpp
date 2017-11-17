@@ -1,5 +1,4 @@
 //TODO(dan): finish movement check if space is available or if it is the opposite color.
-//TODO(dan): trying to figure out removing a piece, I think it has something to do with the piece location is off.
 
 #include "Board.h"
 #include "Enums.h"
@@ -45,38 +44,23 @@ int main() {
     allBoards.push_back(blackQueenBoard);
     allBoards.push_back(blackKingBoard);
 
-//    placement.placePiece(mainBoard, "H", "8");
-//    placement.placePiece(mainBoard, "d", "4");
-//    placement.placePiece(mainBoard, "e", "a");
-//    placement.placePiece(mainBoard, "f", "2");
-
-
-//    std::cout << mainBoard->bitBoard << std::endl;
-//    std::cout << mainBoard->board << std::endl;
-
     FileIO file;
 
     //Placement
-    file.parseFile("PLD4", allBoards, mainBoard);
-//    file.parseFile("PLF3", allBoards, mainBoard);
-//    file.parseFile("PLB6", allBoards, mainBoard);
-//    file.parseFile("PLG4", allBoards, mainBoard);
-//    file.parseFile("NLA3", allBoards, mainBoard);
-//    file.parseFile("QDF4", allBoards, mainBoard);
-
-    //Movements
-    file.parseFile("D4D5", allBoards, mainBoard);
+    file.parseFile("PLA1", allBoards, mainBoard);
+    file.parseFile("RDD4", allBoards, mainBoard);
+    file.parseFile("QLB7", allBoards, mainBoard);
+    file.parseFile("NLF5", allBoards, mainBoard);
+    file.parseFile("PDH8", allBoards, mainBoard);
+    file.parseFile("PLA3", allBoards, mainBoard);
 
     Display display;
-//    display.DrawBoard(whitePawnBoard);
-//    display.DrawBoard(whiteKnightBoard);
-//    display.DrawBoard(blackQueenBoard);
     display.DrawBoard(mainBoard);
 
-    unsigned int i1 = 0b0000;
-//    i1 &= ~(1 << 3);
-    i1 ^= 1 << 3;
-    std::cout << i1 << std::endl;
+    //Movements
+    file.parseFile("A1B1", allBoards, mainBoard);
+
+    display.DrawBoard(mainBoard);
 
     return 0;
 }

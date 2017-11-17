@@ -44,8 +44,9 @@ Color Utils::getColor(char colorToken) {
 }
 
 bool Utils::combineBoards(std::vector<Board*> allBoards, Board* mainBoard) {
+    mainBoard->board = 0;
     for (Board* board : allBoards) {
-        mainBoard->board = mainBoard->board | board->board;
+        mainBoard->board |= board->board;
     }
     mainBoard->setBitBoard();
     return true;

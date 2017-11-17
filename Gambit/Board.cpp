@@ -29,29 +29,27 @@ bool Board::setBitMask() {
 }
 
 bool Board::placePiece(std::string rank, std::string file) {
-    unsigned long long piece = 1;
+    unsigned long long piece = 0;
     int position = Utils::getPieceLocation(rank, file);
-    piece = piece << position;
+    piece |= 1ULL << position;
 
-    board = board | piece;
+    this->board |= piece;
     this->setBitBoard();
     return true;
 }
 
 bool Board::removePiece(std::string rank, std::string file) {
-    unsigned long long piece = 1;
+    unsigned long long piece = this->board;
     int position = Utils::getPieceLocation(rank, file);
-    piece &= ~(1 << position);
+    piece &= ~(1ULL << position);
 
-    board = board | piece;
+    this->board &= piece;
     this->setBitBoard();
-    std::cout << this->bitBoard << std::endl;
-    std::cout << "HIT" << std::endl;
     return true;
 }
 
 bool Board::movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
-//    this->placePiece(endRank, endFile);
+    this->placePiece(endRank, endFile);
     this->removePiece(startRank, startFile);
 
     this->setBitBoard();
