@@ -5,10 +5,10 @@
 #ifndef GAMBIT_UTILS_H
 #define GAMBIT_UTILS_H
 
-#include "Enums.h"
-#include "Board.h"
 
 #include <vector>
+#include "Enums.h"
+#include "Board.h"
 
 class Utils {
 public:

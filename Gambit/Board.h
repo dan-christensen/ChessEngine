@@ -6,7 +6,6 @@
 #define GAMBIT_BOARD_H
 
 #include "Enums.h"
-#include "Utils.h"
 
 #include <bitset>
 #include <vector>

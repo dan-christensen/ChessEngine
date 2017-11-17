@@ -2,8 +2,8 @@
 // Created by Dan on 11/8/2017.
 //
 
-#include <iostream>
 #include "Board.h"
+#include "Utils.h"
 
 Board::Board() {
     board = 0;
@@ -30,7 +30,7 @@ bool Board::setBitMask() {
 bool Board::placePiece(std::string rank, std::string file) {
     unsigned long long piece = 1;
     int position = Utils::getPieceLocation(rank, file);
-    piece |= 1ULL << position;
+    piece = piece << position;
 
     board = board | piece;
     this->setBitBoard();
@@ -49,7 +49,7 @@ bool Board::removePiece(std::string rank, std::string file) {
 
 bool Board::movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
     this->placePiece(endRank, endFile);
-
+    removePiece(startRank, startFile);
 
     this->setBitBoard();
     return true;

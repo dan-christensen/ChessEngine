@@ -35,8 +35,8 @@ Color Utils::getColor(char colorToken) {
         case 'L':
         case 'l':
             return WHITE;
-        case 'B':
-        case 'b':
+        case 'D':
+        case 'd':
             return BLACK;
         default:
             return COLOR_DEFAULT;
