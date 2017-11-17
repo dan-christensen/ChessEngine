@@ -9,6 +9,7 @@
 #include <iostream>
 #include <bitset>
 #include <vector>
+#include <w32api/rpc.h>
 
 int main() {
     Placement placement;
@@ -62,7 +63,7 @@ int main() {
 
     display.DrawBoard(mainBoard);
 
-    char c = 201;
+    std::string c = "\u02E7";
     std::cout << c << std::endl;
 
     return 0;
