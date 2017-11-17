@@ -62,7 +62,7 @@ int main() {
 
     display.DrawBoard(mainBoard);
 
-    std::string c = "\u02E7";
+    std::string c = "\u2655";
     std::cout << c << std::endl;
 
     return 0;
