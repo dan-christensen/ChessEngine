@@ -9,7 +9,6 @@
 #include <iostream>
 #include <bitset>
 #include <vector>
-#include <w32api/rpc.h>
 
 int main() {
     Placement placement;
