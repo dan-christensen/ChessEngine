@@ -2,6 +2,7 @@
 // Created by Dan on 11/8/2017.
 //
 
+#include <iostream>
 #include "Board.h"
 #include "Utils.h"
 
@@ -40,16 +41,18 @@ bool Board::placePiece(std::string rank, std::string file) {
 bool Board::removePiece(std::string rank, std::string file) {
     unsigned long long piece = 1;
     int position = Utils::getPieceLocation(rank, file);
-    piece &= 1ULL << position;
+    piece &= ~(1 << position);
 
     board = board | piece;
     this->setBitBoard();
+    std::cout << this->bitBoard << std::endl;
+    std::cout << "HIT" << std::endl;
     return true;
 }
 
 bool Board::movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
-    this->placePiece(endRank, endFile);
-    removePiece(startRank, startFile);
+//    this->placePiece(endRank, endFile);
+    this->removePiece(startRank, startFile);
 
     this->setBitBoard();
     return true;
