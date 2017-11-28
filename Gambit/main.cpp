@@ -65,5 +65,8 @@ int main() {
     std::string c = "\u2655";
     std::cout << c << std::endl;
 
+    std::string d = "\u254B";
+    std::cout << d << std::endl;
+
     return 0;
 }
