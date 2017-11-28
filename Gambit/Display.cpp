@@ -35,16 +35,20 @@ Display::Display() {
     BOTTOM_LEFT_CORNER = "\u251B";
     BOTTOM_LEFT_CORNER_BOARDER = "\u255D";
 
-    INTERSECTION;
+    INTERSECTION = "\u253C";
 }
 
-bool Display::DrawBoard(Board *board) {
+bool Display::DrawBoard(Board* board) {
     int index = 7;
     char file = 'H';
 
     std::cout << "  " << TOP_RIGHT_CORNER_BOARDER;
     for (int k = 0; k < 15; ++k) {
-        std::cout << HORIZONTAL_BAR_BOARDER_DOWN;
+        if (k % 2 != 0) {
+            std::cout << HORIZONTAL_BAR_BOARDER_DOWN;
+        } else {
+            std::cout << HORIZONTAL_BAR_BOARDER;
+        }
     }
     std::cout << TOP_LEFT_CORNER_BOARDER << std::endl;
     for (int j = 0; j < 8; ++j) {
@@ -56,24 +60,44 @@ bool Display::DrawBoard(Board *board) {
             } else {
                 std::cout << " ";
             }
-            std::cout << VERTICAL_BAR;
+            if (i % 8 == 0) {
+                std::cout << VERTICAL_BAR_BOARDER;
+            } else {
+                std::cout << VERTICAL_BAR;
+            }
+        }
+
+        if (j < 7) {
+            std::cout << std::endl << "  " << VERTICAL_BAR_BOARDER_RIGHT;
+            for (int k = 0; k < 15; ++k) {
+                if (k % 2 != 0) {
+                    std::cout << INTERSECTION;
+                } else {
+                    std::cout << HORIZONTAL_BAR;
+                }
+            }
+            std::cout << VERTICAL_BAR_BOARDER_LEFT;
         }
         index += 8;
         std::cout << std::endl;
     }
     std::cout << "  " << BOTTOM_RIGHT_CORNER_BOARDER;
     for (int k = 0; k < 15; ++k) {
-        std::cout << HORIZONTAL_BAR_BOARDER_UP;
+        if (k % 2 != 0) {
+            std::cout << HORIZONTAL_BAR_BOARDER_UP;
+        } else {
+            std::cout << HORIZONTAL_BAR_BOARDER;
+        }
     }
     std::cout << BOTTOM_LEFT_CORNER_BOARDER << std::endl;
-    std::cout << "  1 2 3 4 5 6 7 8" << std::endl;
+    std::cout << "   1 2 3 4 5 6 7 8" << std::endl;
 
     return true;
 }
 
-bool Display::DrawBoard(std::vector<Board *> allBoards) {
+bool Display::DrawBoard(std::vector<Board*> allBoards) {
     char token = '-';
-    for (Board *board : allBoards) {
+    for (Board* board : allBoards) {
         switch (board->boardType) {
 
             case PAWN:
