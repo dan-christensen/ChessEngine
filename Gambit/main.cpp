@@ -66,7 +66,10 @@ int main() {
     std::cout << c << std::endl;
 
     std::string d = "\u254B";
-    std::cout << d << std::endl;
+    std::string d1 = "\u253B";
+    std::string d2 = "\u252B";
+    std::string d3 = "\u254B";
+    std::cout << d << d1 << d2 << d3 << std::endl;
 
     return 0;
 }
