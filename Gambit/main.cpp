@@ -1,4 +1,5 @@
-//TODO(dan): finish movement check if space is available or if it is the opposite color.
+//todo(dan): finish movement check if space is available or if it is the opposite color.
+//todo(dan): finish formatting the board in draw board.
 
 #include "Board.h"
 #include "Enums.h"
