@@ -72,7 +72,7 @@ int main() {
     std::cout << d << d1 << d2 << d3 << std::endl;
 
     setlocale(LC_ALL, "en_US.UTF-8");
-    wchar_t codepoint = 0x2655;
+    std::string codepoint = "\u2655";
     std::cout << codepoint << std::endl;
 
     return 0;
