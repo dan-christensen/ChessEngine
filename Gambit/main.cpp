@@ -74,6 +74,8 @@ int main() {
     setlocale(LC_ALL, "en_US.UTF-8");
     std::string codepoint = "\u2655";
     std::cout << codepoint << std::endl;
+    
+    std::cout << "\xe2\x99\x94" << std::endl;
 
     return 0;
 }
