@@ -71,5 +71,9 @@ int main() {
     std::string d3 = "\u254B";
     std::cout << d << d1 << d2 << d3 << std::endl;
 
+    setlocale(LC_ALL, "en_US.UTF-8");
+    wchar_t codepoint = 0x2655;
+    std::cout << codepoint << std::endl;
+
     return 0;
 }
