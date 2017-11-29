@@ -51,15 +51,16 @@ int main() {
     FileIO file;
 
     //Placement
-    file.parseFile("PLA1", allBoards, mainBoard);
-    file.parseFile("RDD4", allBoards, mainBoard);
-    file.parseFile("QLB7", allBoards, mainBoard);
-    file.parseFile("NLF5", allBoards, mainBoard);
-    file.parseFile("PDH8", allBoards, mainBoard);
-    file.parseFile("PLA3", allBoards, mainBoard);
+//    file.parseFile("PLA1", allBoards, mainBoard);
+//    file.parseFile("RDD4", allBoards, mainBoard);
+//    file.parseFile("QLB7", allBoards, mainBoard);
+//    file.parseFile("NLF5", allBoards, mainBoard);
+//    file.parseFile("PDH8", allBoards, mainBoard);
+//    file.parseFile("PLA3", allBoards, mainBoard);
+    file.parseFile("PLD1", allBoards, mainBoard);
 
     Display display;
-//    display.DrawBoard(mainBoard->board);
+    display.DrawBoard(mainBoard->board);
 
     //Movements
     file.parseFile("A1B1", allBoards, mainBoard);
@@ -79,8 +80,8 @@ int main() {
     mainTestBoard->setBitBoard();
 
     testRookBoard->setBitMask(M42::calc_rook_attacks(0, mainBoard->board));
-    display.DrawBoard(mainTestBoard->board);
-    display.DrawBoard(testRookBoard->bitMask);
+//    display.DrawBoard(mainTestBoard->board);
+//    display.DrawBoard(testRookBoard->bitMask);
 
     return 0;
 }

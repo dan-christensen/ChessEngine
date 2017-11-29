@@ -45,7 +45,7 @@ bool Display::DrawBoard(unsigned long long board) {
     std::bitset<64> bitBoard = std::bitset<64>(board);
 
     int index = 7;
-    char file = 'H';
+    int file = 8;
 
     std::cout << "  " << TOP_RIGHT_CORNER_BOARDER;
     for (int k = 0; k < 15; ++k) {
@@ -95,7 +95,7 @@ bool Display::DrawBoard(unsigned long long board) {
         }
     }
     std::cout << BOTTOM_LEFT_CORNER_BOARDER << std::endl;
-    std::cout << "   1 2 3 4 5 6 7 8" << std::endl;
+    std::cout << "   A B C D E F G H" << std::endl;
 
     return true;
 }
