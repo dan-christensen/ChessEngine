@@ -4,6 +4,9 @@
 
 #include "Display.h"
 
+#include <sstream>
+#include <bitset>
+
 Display::Display() {
     VERTICAL_BAR = "\u2502";
     VERTICAL_BAR_BOARDER = "\u2551";
@@ -38,7 +41,9 @@ Display::Display() {
     INTERSECTION = "\u253C";
 }
 
-bool Display::DrawBoard(Board* board) {
+bool Display::DrawBoard(unsigned long long board) {
+    std::bitset<64> bitBoard = std::bitset<64>(board);
+
     int index = 7;
     char file = 'H';
 
@@ -55,7 +60,7 @@ bool Display::DrawBoard(Board* board) {
         std::cout << file-- << " ";
         std::cout << VERTICAL_BAR_BOARDER;
         for (int i = index; i > index - 8; --i) {
-            if (board->bitBoard[i]) {
+            if (bitBoard[i]) {
                 std::cout << 1;
             } else {
                 std::cout << " ";
@@ -124,4 +129,26 @@ bool Display::DrawBoard(std::vector<Board*> allBoards) {
 
     return true;
 }
+
+std::string Display::BitboardToString(uint64_t b1, uint64_t b2)
+{
+    std::ostringstream ss;
+    for (int r = 7; r >= 0; --r) {
+        ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
+        ss.width(3);
+        ss << r + 1 << " |";
+        for (int f = 0; f <= 7; ++f) {
+            ss << ((b1 & (1ULL << ((r << 3) | f))) ? " X |" : "   |");
+        }
+        ss << "    |";
+        for (int f = 0; f <= 7; ++f) {
+            ss << ((b2 & (1ULL << ((r << 3) | f))) ? " X |" : "   |");
+        }
+        ss << '\n';
+    }
+    ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
+    ss << "      a   b   c   d   e   f   g   h        a   b   c   d   e   f   g   h  \n";
+    return ss.str();
+}
+
 

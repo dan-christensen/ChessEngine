@@ -23,9 +23,9 @@ bool Board::setBitBoard() {
     return true;
 }
 
-bool Board::setBitMask() {
-
-    return false;
+bool Board::setBitMask(unsigned long long bitMask) {
+    this->bitMask = bitMask;
+    return true;
 }
 
 bool Board::placePiece(std::string rank, std::string file) {

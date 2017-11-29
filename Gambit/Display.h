@@ -15,8 +15,9 @@
 class Display {
 public:
     Display();
-    bool DrawBoard(Board* board);
+    bool DrawBoard(unsigned long long board);
     bool DrawBoard(std::vector<Board*> allBoards);
+    static std::string BitboardToString(uint64_t b1, uint64_t b2);
 
 private:
     std::string VERTICAL_BAR;

@@ -1,17 +1,19 @@
 //todo(dan): finish movement check if space is available or if it is the opposite color.
-//todo(dan): finish formatting the board in draw board.
 
 #include "Board.h"
 #include "Enums.h"
 #include "Display.h"
 #include "Placement.h"
 #include "FileIO.h"
+#include "M42/m42.h"
 
 #include <iostream>
 #include <bitset>
 #include <vector>
 
 int main() {
+    M42::init();
+
     Placement placement;
 
     Board* mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
@@ -56,12 +58,16 @@ int main() {
     file.parseFile("PLA3", allBoards, mainBoard);
 
     Display display;
-    display.DrawBoard(mainBoard);
+    display.DrawBoard(mainBoard->board);
 
     //Movements
     file.parseFile("A1B1", allBoards, mainBoard);
 
-    display.DrawBoard(mainBoard);
+    display.DrawBoard(mainBoard->board);
+
+    Board* testRookBoard = new Board(WHITE, ROOK, 1);
+    testRookBoard->setBitMask(M42::calc_rook_attacks(0, testRookBoard->board));
+    display.DrawBoard(testRookBoard->bitMask);
 
     return 0;
 }
