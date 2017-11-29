@@ -1,3 +1,4 @@
+//todo(dan): flip the board so a1=0, a2=1...h8=63.
 //todo(dan): finish movement check if space is available or if it is the opposite color.
 
 #include "Board.h"
@@ -58,15 +59,27 @@ int main() {
     file.parseFile("PLA3", allBoards, mainBoard);
 
     Display display;
-    display.DrawBoard(mainBoard->board);
+//    display.DrawBoard(mainBoard->board);
 
     //Movements
     file.parseFile("A1B1", allBoards, mainBoard);
 
-    display.DrawBoard(mainBoard->board);
+//    display.DrawBoard(mainBoard->board);
 
-    Board* testRookBoard = new Board(WHITE, ROOK, 1);
-    testRookBoard->setBitMask(M42::calc_rook_attacks(0, testRookBoard->board));
+    Board* mainTestBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
+    Board* testRookBoard = new Board(WHITE, ROOK, 129);
+    Board* testPawnBoard = new Board(BLACK, PAWN, 8);
+
+    mainTestBoard->setBitBoard();
+    testRookBoard->setBitBoard();
+    testPawnBoard->setBitBoard();
+
+    mainTestBoard->board |= testRookBoard->board;
+    mainTestBoard->board |= testPawnBoard->board;
+    mainTestBoard->setBitBoard();
+
+    testRookBoard->setBitMask(M42::calc_rook_attacks(0, mainBoard->board));
+    display.DrawBoard(mainTestBoard->board);
     display.DrawBoard(testRookBoard->bitMask);
 
     return 0;
