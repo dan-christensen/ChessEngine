@@ -11,7 +11,7 @@
 
 class Placement {
 public:
-    bool placePiece(Board* board, std::string rank, std::string file);
+    bool placePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
 };
 
 

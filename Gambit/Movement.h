@@ -6,8 +6,11 @@
 #define GAMBIT_MOVEMENT_H
 
 
-class Movement {
+#include "Board.h"
 
+class Movement {
+public:
+    bool movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
 };
 
 

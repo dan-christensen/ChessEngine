@@ -10,6 +10,7 @@
 #include "Board.h"
 #include "Placement.h"
 #include "Utils.h"
+#include "Movement.h"
 
 #include <string>
 #include <regex>
@@ -25,6 +26,7 @@ private:
     bool paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
 
     Placement* placement;
+    Movement* movement;
 
 };
 

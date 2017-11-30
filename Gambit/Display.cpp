@@ -41,7 +41,7 @@ Display::Display() {
     INTERSECTION = "\u253C";
 }
 
-bool Display::DrawBoard(unsigned long long board) {
+bool Display::drawBoard(unsigned long long board) {
     std::bitset<64> bitboard = std::bitset<64>(board);
 
     int index = 63;
@@ -63,7 +63,7 @@ bool Display::DrawBoard(unsigned long long board) {
     return true;
 }
 
-bool Display::DrawBoard(std::vector<Board*> allBoards) {
+bool Display::drawBoard(std::vector<Board*> allBoards) {
     char token = '-';
     for (Board* board : allBoards) {
         switch (board->boardType) {
@@ -96,7 +96,7 @@ bool Display::DrawBoard(std::vector<Board*> allBoards) {
     return true;
 }
 
-std::string Display::BitboardToString(uint64_t b1, uint64_t b2) {
+std::string Display::bitboardToString(uint64_t b1, uint64_t b2) {
     std::ostringstream ss;
     for (int r = 7; r >= 0; --r) {
         ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
