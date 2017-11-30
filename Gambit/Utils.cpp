@@ -63,14 +63,14 @@ Board* Utils::getBoard(std::vector<Board*> allBoards, Color color, Piece piece) 
 }
 
 int Utils::getPieceLocation(std::string rank, std::string file) {
-    int a = 1;
+    int a = 0;
     int b = a + 1;
-    int c = b + 1;
-    int d = c + 1;
-    int e = d + 1;
-    int f = e + 1;
-    int g = f + 1;
-    int h = g + 1;
+    int c = a + 2;
+    int d = a + 3;
+    int e = a + 4;
+    int f = a + 5;
+    int g = a + 6;
+    int h = a + 7;
 
     int localRank = 0;
     int localFile = 0;
@@ -93,7 +93,11 @@ int Utils::getPieceLocation(std::string rank, std::string file) {
     if (file == "7") localFile = 7;
     if (file == "8") localFile = 8;
 
-    int location = (localRank - (8 * (localFile - 1)));
+//    int location = (localRank - (8 * (localFile - 1)));
+
+    // i = x + (width * y)
+    // x = rank (A-H)
+    int location = localRank + (8 * (localFile - 1));
 
     return location;
 }

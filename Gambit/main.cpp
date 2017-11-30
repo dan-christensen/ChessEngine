@@ -57,19 +57,20 @@ int main() {
 //    file.parseFile("NLF5", allBoards, mainBoard);
 //    file.parseFile("PDH8", allBoards, mainBoard);
 //    file.parseFile("PLA3", allBoards, mainBoard);
-    file.parseFile("PLD1", allBoards, mainBoard);
+
+    file.parseFile("PLA2", allBoards, mainBoard);
 
     Display display;
-    display.DrawBoard(mainBoard->board);
+//    display.DrawBoard(mainBoard->board);
 
     //Movements
-    file.parseFile("A1B1", allBoards, mainBoard);
+    file.parseFile("A2H8", allBoards, mainBoard);
 
 //    display.DrawBoard(mainBoard->board);
 
     Board* mainTestBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
-    Board* testRookBoard = new Board(WHITE, ROOK, 129);
-    Board* testPawnBoard = new Board(BLACK, PAWN, 8);
+    Board* testRookBoard = new Board(WHITE, ROOK, 281474976710721);
+    Board* testPawnBoard = new Board(BLACK, PAWN, 0);
 
     mainTestBoard->setBitBoard();
     testRookBoard->setBitBoard();
@@ -79,9 +80,9 @@ int main() {
     mainTestBoard->board |= testPawnBoard->board;
     mainTestBoard->setBitBoard();
 
-    testRookBoard->setBitMask(M42::calc_rook_attacks(0, mainBoard->board));
-//    display.DrawBoard(mainTestBoard->board);
-//    display.DrawBoard(testRookBoard->bitMask);
+    testRookBoard->setBitMask(M42::calc_rook_attacks(0, mainTestBoard->board));
+    display.DrawBoard(mainTestBoard->board);
+    display.DrawBoard(testRookBoard->bitMask);
 
     return 0;
 }

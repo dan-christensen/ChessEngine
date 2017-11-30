@@ -42,61 +42,24 @@ Display::Display() {
 }
 
 bool Display::DrawBoard(unsigned long long board) {
-    std::bitset<64> bitBoard = std::bitset<64>(board);
+    std::bitset<64> bitboard = std::bitset<64>(board);
 
-    int index = 7;
-    int file = 8;
+    int index = 63;
 
-    std::cout << "  " << TOP_RIGHT_CORNER_BOARDER;
-    for (int k = 0; k < 15; ++k) {
-        if (k % 2 != 0) {
-            std::cout << HORIZONTAL_BAR_BOARDER_DOWN;
-        } else {
-            std::cout << HORIZONTAL_BAR_BOARDER;
-        }
-    }
-    std::cout << TOP_LEFT_CORNER_BOARDER << std::endl;
-    for (int j = 0; j < 8; ++j) {
-        std::cout << file-- << " ";
-        std::cout << VERTICAL_BAR_BOARDER;
-        for (int i = index; i > index - 8; --i) {
-            if (bitBoard[i]) {
-                std::cout << 1;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = index - 7; j <= index; ++j) {
+//            std::cout << bitboard[j] << " [" << j << "] ";
+            if (bitboard[j]) {
+               std::cout << "1";
             } else {
-                std::cout << " ";
-            }
-            if (i % 8 == 0) {
-                std::cout << VERTICAL_BAR_BOARDER;
-            } else {
-                std::cout << VERTICAL_BAR;
+                std::cout << "-";
             }
         }
-
-        if (j < 7) {
-            std::cout << std::endl << "  " << VERTICAL_BAR_BOARDER_RIGHT;
-            for (int k = 0; k < 15; ++k) {
-                if (k % 2 != 0) {
-                    std::cout << INTERSECTION;
-                } else {
-                    std::cout << HORIZONTAL_BAR;
-                }
-            }
-            std::cout << VERTICAL_BAR_BOARDER_LEFT;
-        }
-        index += 8;
         std::cout << std::endl;
+        index -= 8;
     }
-    std::cout << "  " << BOTTOM_RIGHT_CORNER_BOARDER;
-    for (int k = 0; k < 15; ++k) {
-        if (k % 2 != 0) {
-            std::cout << HORIZONTAL_BAR_BOARDER_UP;
-        } else {
-            std::cout << HORIZONTAL_BAR_BOARDER;
-        }
-    }
-    std::cout << BOTTOM_LEFT_CORNER_BOARDER << std::endl;
-    std::cout << "   A B C D E F G H" << std::endl;
 
+    std::cout << std::endl;
     return true;
 }
 
@@ -123,6 +86,9 @@ bool Display::DrawBoard(std::vector<Board*> allBoards) {
             case KING:
                 token = 'K';
                 break;
+            case PIECE_DEFAULT:
+                token = '-';
+                break;
         }
 
     }
@@ -130,8 +96,7 @@ bool Display::DrawBoard(std::vector<Board*> allBoards) {
     return true;
 }
 
-std::string Display::BitboardToString(uint64_t b1, uint64_t b2)
-{
+std::string Display::BitboardToString(uint64_t b1, uint64_t b2) {
     std::ostringstream ss;
     for (int r = 7; r >= 0; --r) {
         ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
