@@ -1,21 +1,13 @@
-//todo(dan): flip the board so a1=0, a2=1...h8=63.
-//todo(dan): finish movement check if space is available or if it is the opposite color.
+//todo: placement logic: need to check if space is taken or not
+//todo: finish movement check if space is available or if it is the opposite color.
 
 #include "Board.h"
-#include "Enums.h"
 #include "Display.h"
-#include "Placement.h"
 #include "FileIO.h"
 #include "M42/m42.h"
 
-#include <iostream>
-#include <bitset>
-#include <vector>
-
 int main() {
     M42::init();
-
-    Placement placement;
 
     Board* mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
 

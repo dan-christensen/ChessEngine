@@ -101,3 +101,10 @@ int Utils::getPieceLocation(std::string rank, std::string file) {
 
     return location;
 }
+
+bool Utils::isSpaceClear(int position, unsigned long long board) {
+    unsigned long long flag = 0;
+    flag |= 1Ull << position;
+
+    return (board & flag) == 0;
+}

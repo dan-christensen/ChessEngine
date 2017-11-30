@@ -12,9 +12,9 @@ bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* m
     std::regex movementPattern("(([A-H])([1-8])([A-H])([1-8]))\\*?");
 
     if (std::regex_match(input, placementPattern)) {
-        parsePlacement(input, allBoards, mainBoard);
+        return parsePlacement(input, allBoards, mainBoard);
     } else if (std::regex_match(input, movementPattern)) {
-        paresMove(input, allBoards, mainBoard);
+        return paresMove(input, allBoards, mainBoard);
     }
 
     return true;
