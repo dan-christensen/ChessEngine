@@ -1,5 +1,6 @@
-//todo: placement logic: need to check if space is taken or not
-//todo: finish movement check if space is available or if it is the opposite color.
+//TODO: finish movement check if space is available or if it is the opposite color.
+//TODO: For movement check if path is clear and if the end space is clear.
+//TODO: For capture, just check if the path is clear and that the end space is an enemy.
 
 #include "Board.h"
 #include "Display.h"
