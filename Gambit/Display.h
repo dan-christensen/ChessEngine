@@ -6,20 +6,31 @@
 #define GAMBIT_DISPLAY_H
 
 
-#include "Board.h"
-
 #include <vector>
-
 #include <iostream>
+
+#include "Board.h"
+#include "Enums.h"
+
 
 class Display {
 public:
     Display();
     bool drawBoard(unsigned long long board);
     bool drawBoard(std::vector<Board*> allBoards);
-    static std::string bitboardToString(uint64_t b1, uint64_t b2);
 
 private:
+    class Square {
+    public:
+        Square(std::string rank, std::string file, std::string token = "-");
+
+        std::string token;
+        std::string rank;
+        std::string file;
+    };
+
+    std::string getPieceToken(Color color, Piece piece);
+
     std::string VERTICAL_BAR;
     std::string VERTICAL_BAR_BOARDER;
 

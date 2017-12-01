@@ -1,11 +1,10 @@
 //
 // Created by Dan on 11/9/2017.
 //
+#include <vector>
 
 #include "Display.h"
 
-#include <sstream>
-#include <bitset>
 
 Display::Display() {
     VERTICAL_BAR = "\u2502";
@@ -50,7 +49,7 @@ bool Display::drawBoard(unsigned long long board) {
         for (int j = index - 7; j <= index; ++j) {
 //            std::cout << bitboard[j] << " [" << j << "] ";
             if (bitboard[j]) {
-               std::cout << "1";
+                std::cout << "1";
             } else {
                 std::cout << "-";
             }
@@ -64,56 +63,89 @@ bool Display::drawBoard(unsigned long long board) {
 }
 
 bool Display::drawBoard(std::vector<Board*> allBoards) {
-    char token = '-';
-    for (Board* board : allBoards) {
-        switch (board->boardType) {
 
-            case PAWN:
-                token = 'P';
-                break;
-            case KNIGHT:
-                token = 'N';
-                break;
-            case BISHOP:
-                token = 'B';
-                break;
-            case ROOK:
-                token = 'R';
-                break;
-            case QUEEN:
-                token = 'Q';
-                break;
-            case KING:
-                token = 'K';
-                break;
-            case PIECE_DEFAULT:
-                token = '-';
-                break;
+    std::vector<Square*> boardToDraw;
+    std::string r = "A";
+    std::string f = "1";
+    for (int i = 0; i < 64; ++i) {
+        boardToDraw.push_back(new Square(r, f));
+        ++r[0];
+        if (r[0] > 'H') {
+            r[0] = 'A';
+            ++f[0];
         }
+    }
 
+    for (Board* board : allBoards) {
+        for (int i = 0; i < 64; ++i) {
+            if (board->bitBoard[i]) {
+                boardToDraw[i]->token = getPieceToken(board->boardColor, board->boardType);
+            }
+        }
+    }
+
+    int index = 64;
+    for (int k = 0; k < 8; ++k) {
+        for (int j = index - 8; j < index; ++j) {
+            std::cout << boardToDraw[j]->token;
+        }
+        std::cout << std::endl;
+        index -= 8;
     }
 
     return true;
 }
 
-std::string Display::bitboardToString(uint64_t b1, uint64_t b2) {
-    std::ostringstream ss;
-    for (int r = 7; r >= 0; --r) {
-        ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
-        ss.width(3);
-        ss << r + 1 << " |";
-        for (int f = 0; f <= 7; ++f) {
-            ss << ((b1 & (1ULL << ((r << 3) | f))) ? " X |" : "   |");
-        }
-        ss << "    |";
-        for (int f = 0; f <= 7; ++f) {
-            ss << ((b2 & (1ULL << ((r << 3) | f))) ? " X |" : "   |");
-        }
-        ss << '\n';
+std::string Display::getPieceToken(Color color, Piece piece) {
+    switch (piece) {
+        case PAWN:
+            switch (color) {
+                case WHITE:
+                    return "\u2659";
+                case BLACK:
+                    return "\u265F";
+            }
+        case KNIGHT:
+            switch (color) {
+                case WHITE:
+                    return "\u2658";
+                case BLACK:
+                    return "\u265E";
+            }
+        case BISHOP:
+            switch (color) {
+                case WHITE:
+                    return "\u2657";
+                case BLACK:
+                    return "\u265D";
+            }
+        case ROOK:
+            switch (color) {
+                case WHITE:
+                    return "\u2656";
+                case BLACK:
+                    return "\u265C";
+            }
+        case QUEEN:
+            switch (color) {
+                case WHITE:
+                    return "\u2655";
+                case BLACK:
+                    return "\u265B";
+            }
+        case KING:
+            switch (color) {
+                case WHITE:
+                    return "\u2654";
+                case BLACK:
+                    return "\u265A";
+            }
     }
-    ss << "    +---+---+---+---+---+---+---+---+    +---+---+---+---+---+---+---+---+\n";
-    ss << "      a   b   c   d   e   f   g   h        a   b   c   d   e   f   g   h  \n";
-    return ss.str();
+    return std::string();
 }
 
-
+Display::Square::Square(std::string rank, std::string file, std::string token) {
+    this->token = token;
+    this->rank = rank;
+    this->file = file;
+}

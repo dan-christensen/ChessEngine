@@ -20,6 +20,7 @@
 class FileIO {
 public:
     bool parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    std::string getUserInput();
 
 private:
     bool parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard);

@@ -27,3 +27,10 @@ bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Boa
 bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
     return movement->movePiece(move, allBoards, mainBoard);
 }
+
+std::string FileIO::getUserInput() {
+    std::string rVal;
+    std::cout <<  "Please enter a move: ";
+    std::cin >> rVal;
+    return rVal;
+}
