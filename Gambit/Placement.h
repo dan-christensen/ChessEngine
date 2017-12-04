@@ -6,12 +6,13 @@
 #define GAMBIT_PLACEMENT_H
 
 #include "Board.h"
+#include "../TurnHandler.h"
 
 #include <vector>
 
 class Placement {
 public:
-    bool placePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    bool placePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
 };
 
 

@@ -7,10 +7,11 @@
 
 
 #include "Board.h"
+#include "../TurnHandler.h"
 
 class Movement {
 public:
-    bool movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    bool movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
 };
 
 

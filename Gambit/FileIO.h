@@ -11,6 +11,7 @@
 #include "Placement.h"
 #include "Utils.h"
 #include "Movement.h"
+#include "../TurnHandler.h"
 
 #include <string>
 #include <regex>
@@ -19,12 +20,12 @@
 
 class FileIO {
 public:
-    bool parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    bool parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
     std::string getUserInput();
 
 private:
-    bool parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
-    bool paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard);
+    bool parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
+    bool paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
 
     Placement* placement;
     Movement* movement;

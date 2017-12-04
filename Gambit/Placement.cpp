@@ -5,7 +5,7 @@
 #include "Placement.h"
 #include "Utils.h"
 
-bool Placement::placePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
+bool Placement::placePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
     Piece piece = Utils::getPiece(move[0]);
     Color color = Utils::getColor(move[1]);
     Board* board = Utils::getBoard(allBoards, color, piece);
@@ -16,6 +16,9 @@ bool Placement::placePiece(std::string move, std::vector<Board*> allBoards, Boar
     if (board == nullptr) {
         return false;
     }
+//    if (turn.getCurrentTurn() != board->boardColor) {
+//        return false;
+//    }
     if (!Utils::isSpaceClear(Utils::getPieceLocation(rank, file), board->board)) {
         return false;
     }

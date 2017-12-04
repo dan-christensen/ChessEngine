@@ -4,7 +4,7 @@
 
 #include "FileIO.h"
 
-bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
+bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
     std::string input = move;
     for (auto& c: input) c = toupper(c);
 
@@ -12,20 +12,20 @@ bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* m
     std::regex movementPattern("(([A-H])([1-8])([A-H])([1-8]))\\*?");
 
     if (std::regex_match(input, placementPattern)) {
-        return parsePlacement(input, allBoards, mainBoard);
+        return parsePlacement(input, allBoards, mainBoard, turn);
     } else if (std::regex_match(input, movementPattern)) {
-        return paresMove(input, allBoards, mainBoard);
+        return paresMove(input, allBoards, mainBoard, turn);
     }
 
     return true;
 }
 
-bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
-    return placement->placePiece(move, allBoards, mainBoard);
+bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
+    return placement->placePiece(move, allBoards, mainBoard, turn);
 }
 
-bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
-    return movement->movePiece(move, allBoards, mainBoard);
+bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
+    return movement->movePiece(move, allBoards, mainBoard, turn);
 }
 
 std::string FileIO::getUserInput() {

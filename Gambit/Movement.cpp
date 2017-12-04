@@ -5,7 +5,7 @@
 #include "Movement.h"
 #include "Utils.h"
 
-bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard) {
+bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
     Board* tempBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
     Board* moveBoard = nullptr;
     Piece piece = PIECE_DEFAULT;
@@ -28,6 +28,9 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
     }
 
     if (moveBoard == nullptr) {
+        return false;
+    }
+    if (moveBoard->boardColor != turn->getCurrentTurn()){
         return false;
     }
 
