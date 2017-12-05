@@ -22,7 +22,7 @@ public:
 private:
     class Square {
     public:
-        Square(std::string rank, std::string file, std::string token = "-");
+        Square(std::string rank, std::string file, std::string token = " ");
 
         std::string token;
         std::string rank;
