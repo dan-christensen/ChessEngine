@@ -32,5 +32,6 @@ std::string FileIO::getUserInput() {
     std::string rVal;
     std::cout <<  "Please enter a move: ";
     std::cin >> rVal;
+    std::cout << std::endl;
     return rVal;
 }

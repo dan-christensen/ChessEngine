@@ -85,7 +85,7 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
     }
 
     int index = 64;
-    std::cout << " " << TOP_RIGHT_CORNER_BOARDER;
+    std::cout << "  " << TOP_RIGHT_CORNER_BOARDER;
     for (int l = 0; l < 7; ++l) {
         std::cout << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER
                   << HORIZONTAL_BAR_BOARDER_DOWN;
@@ -96,13 +96,13 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
     char file = '8';
     for (int k = 0; k < 8; ++k) {
         if (k != 0) {
-            std::cout << " " << VERTICAL_BAR_BOARDER_RIGHT;
+            std::cout << "  " << VERTICAL_BAR_BOARDER_RIGHT;
             for (int i = 0; i < 7; ++i) {
                 std::cout << HORIZONTAL_BAR << HORIZONTAL_BAR << HORIZONTAL_BAR << INTERSECTION;
             }
             std::cout << HORIZONTAL_BAR << HORIZONTAL_BAR << HORIZONTAL_BAR << VERTICAL_BAR_BOARDER_LEFT << std::endl;
         }
-        std::cout << file-- << VERTICAL_BAR_BOARDER;
+        std::cout << " " << file-- << VERTICAL_BAR_BOARDER;
         for (int j = index - 8; j < index; ++j) {
             std::cout << " " << boardToDraw[j]->token << " ";
             if (j == index - 1) {
@@ -114,14 +114,14 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
         std::cout << std::endl;
         index -= 8;
     }
-    std::cout << " " << BOTTOM_RIGHT_CORNER_BOARDER;
+    std::cout << "  " << BOTTOM_RIGHT_CORNER_BOARDER;
     for (int l = 0; l < 7; ++l) {
         std::cout << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER
                   << HORIZONTAL_BAR_BOARDER_UP;
     }
     std::cout << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER
               << BOTTOM_LEFT_CORNER_BOARDER << std::endl;
-    std::cout << "   A   B   C   D   E   F   G    H" << std::endl;
+    std::cout << "    A   B   C   D   E   F   G    H" << std::endl;
 
     return true;
 }
