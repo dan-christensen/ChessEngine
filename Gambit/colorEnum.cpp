@@ -4,7 +4,7 @@
 
 #include "Enums.h"
 
-std::string ColorEnum::colorToString(int id){
+std::string colorEnum::colorToString(int id){
     static const char* pieceStrings[] = {"White", "Black", "COLOR_DEFAULT"};
     return pieceStrings[id];
 }

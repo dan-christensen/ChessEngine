@@ -8,14 +8,14 @@
 
 #include "Enums.h"
 
-class TurnHandler {
+class turnHandler {
 public:
-    TurnHandler();
-    Color  getCurrentTurn();
+    turnHandler();
+    color  getCurrentTurn();
     bool changeTurn();
 
 private:
-    Color currentTurn;
+    color currentTurn;
 
 };
 

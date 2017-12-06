@@ -4,7 +4,7 @@
 
 #include "Enums.h"
 
-std::string PieceEnum::pieceToString(int id) {
+std::string pieceEnum::pieceToString(int id) {
     static const char* pieceStrings[] = {"Pawn", "Knight", "Bishop", "Rook", "Queen", "King", "PIECE_DEFAULT"};
     return pieceStrings[id];
 }

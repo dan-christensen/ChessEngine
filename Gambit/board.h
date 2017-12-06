@@ -11,17 +11,17 @@
 #include <vector>
 
 
-class Board {
+class board {
 public:
-    Piece boardType;
-    Color boardColor;
+    piece boardType;
+    color boardColor;
 
-    unsigned long long board;
+    unsigned long long b;
     unsigned long long bitMask;
     std::bitset<64> bitBoard;
 
-    Board();
-    Board(Color boardColor, Piece boardType, unsigned long long boardValue);
+    board();
+    board(color boardColor, piece boardType, unsigned long long boardValue);
     bool setBitBoard();
     bool setBitMask(unsigned long long bitMask);
     bool placePiece(std::string rank, std::string file);

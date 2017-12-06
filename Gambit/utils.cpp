@@ -2,9 +2,9 @@
 // Created by Dan on 11/15/2017.
 //
 
-#include "Utils.h"
+#include "utils.h"
 
-Piece Utils::getPiece(char pieceToken) {
+piece utils::getPiece(char pieceToken) {
     switch (pieceToken) {
         case 'P':
         case 'p':
@@ -30,7 +30,7 @@ Piece Utils::getPiece(char pieceToken) {
     }
 }
 
-Color Utils::getColor(char colorToken) {
+color utils::getColor(char colorToken) {
     switch (colorToken) {
         case 'L':
         case 'l':
@@ -43,16 +43,16 @@ Color Utils::getColor(char colorToken) {
     }
 }
 
-bool Utils::combineBoards(std::vector<Board*> allBoards, Board* mainBoard) {
-    mainBoard->board = 0;
-    for (Board* board : allBoards) {
-        mainBoard->board |= board->board;
+bool utils::combineBoards(std::vector<board*> allBoards, board* mainBoard) {
+    mainBoard->b = 0;
+    for (board* board : allBoards) {
+        mainBoard->b |= board->b;
     }
     mainBoard->setBitBoard();
     return true;
 }
 
-Board* Utils::getBoard(std::vector<Board*> allBoards, Color color, Piece piece) {
+board* utils::getBoard(std::vector<board*> allBoards, color color, piece piece) {
     for (auto&& board : allBoards) {
         if (board->boardColor == color && board->boardType == piece) {
             return board;
@@ -62,7 +62,7 @@ Board* Utils::getBoard(std::vector<Board*> allBoards, Color color, Piece piece) 
     return nullptr;
 }
 
-int Utils::getPieceLocation(std::string rank, std::string file) {
+int utils::getPieceLocation(std::string rank, std::string file) {
     int a = 0;
     int b = a + 1;
     int c = a + 2;
@@ -102,7 +102,7 @@ int Utils::getPieceLocation(std::string rank, std::string file) {
     return location;
 }
 
-bool Utils::isSpaceClear(int position, unsigned long long board) {
+bool utils::isSpaceClear(int position, unsigned long long board) {
     unsigned long long flag = 0;
     flag |= 1Ull << position;
 

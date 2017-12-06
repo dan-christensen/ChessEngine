@@ -3,10 +3,10 @@
 //
 #include <vector>
 
-#include "Display.h"
+#include "display.h"
 
 
-Display::Display() {
+display::display() {
     VERTICAL_BAR = "\u2502";
     VERTICAL_BAR_BOARDER = "\u2551";
 
@@ -40,7 +40,7 @@ Display::Display() {
     INTERSECTION = "\u253C";
 }
 
-bool Display::drawBoard(unsigned long long board) {
+bool display::drawBoard(unsigned long long board) {
     std::bitset<64> bitboard = std::bitset<64>(board);
 
     int index = 63;
@@ -62,7 +62,7 @@ bool Display::drawBoard(unsigned long long board) {
     return true;
 }
 
-bool Display::drawBoard(std::vector<Board*> allBoards) {
+bool display::drawBoard(std::vector<board*> allBoards) {
 
     std::vector<Square*> boardToDraw;
     std::string r = "A";
@@ -76,7 +76,7 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
         }
     }
 
-    for (Board* board : allBoards) {
+    for (board* board : allBoards) {
         for (int i = 0; i < 64; ++i) {
             if (board->bitBoard[i]) {
                 boardToDraw[i]->token = getPieceToken(board->boardColor, board->boardType);
@@ -126,7 +126,7 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
     return true;
 }
 
-std::string Display::getPieceToken(Color color, Piece piece) {
+std::string display::getPieceToken(color color, piece piece) {
     switch (piece) {
         case PAWN:
             switch (color) {
@@ -174,7 +174,7 @@ std::string Display::getPieceToken(Color color, Piece piece) {
     return std::string();
 }
 
-Display::Square::Square(std::string rank, std::string file, std::string token) {
+display::Square::Square(std::string rank, std::string file, std::string token) {
     this->token = token;
     this->rank = rank;
     this->file = file;

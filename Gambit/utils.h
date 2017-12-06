@@ -8,14 +8,14 @@
 
 #include <vector>
 #include "Enums.h"
-#include "Board.h"
+#include "board.h"
 
-class Utils {
+class utils {
 public:
-    static Piece getPiece(char pieceToken);
-    static Color getColor(char colorToken);
-    static bool combineBoards(std::vector<Board*> allBoards, Board* mainBoard);
-    static Board* getBoard(std::vector<Board*> allBoards, Color color, Piece piece);
+    static piece getPiece(char pieceToken);
+    static color getColor(char colorToken);
+    static bool combineBoards(std::vector<board*> allBoards, board* mainBoard);
+    static board* getBoard(std::vector<board*> allBoards, color color, piece piece);
     static int getPieceLocation(std::string rank, std::string file);
     static bool isSpaceClear(int position, unsigned long long board);
 };

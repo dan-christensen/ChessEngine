@@ -2,9 +2,9 @@
 // Created by Dan on 11/14/2017.
 //
 
-#include "FileIO.h"
+#include "fileIO.h"
 
-bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
+bool fileIO::parseFile(std::string move, std::vector<board*> allBoards, board* mainBoard, turnHandler* turn) {
     std::string input = move;
     for (auto& c: input) c = toupper(c);
 
@@ -20,15 +20,15 @@ bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* m
     return true;
 }
 
-bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
+bool fileIO::parsePlacement(std::string move, std::vector<board*> allBoards, board* mainBoard, turnHandler* turn) {
     return placement->placePiece(move, allBoards, mainBoard, turn);
 }
 
-bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
+bool fileIO::paresMove(std::string move, std::vector<board*> allBoards, board* mainBoard, turnHandler* turn) {
     return movement->movePiece(move, allBoards, mainBoard, turn);
 }
 
-std::string FileIO::getUserInput() {
+std::string fileIO::getUserInput() {
     std::string rVal;
     std::cout <<  "Please enter a move: ";
     std::cin >> rVal;
