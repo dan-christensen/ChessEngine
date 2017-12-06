@@ -6,7 +6,7 @@
 #define GAMBIT_PLACEMENT_H
 
 #include "Board.h"
-#include "../TurnHandler.h"
+#include "TurnHandler.h"
 
 #include <vector>
 

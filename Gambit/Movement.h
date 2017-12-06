@@ -7,7 +7,7 @@
 
 
 #include "Board.h"
-#include "../TurnHandler.h"
+#include "TurnHandler.h"
 
 class Movement {
 public:

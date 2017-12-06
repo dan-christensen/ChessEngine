@@ -6,7 +6,7 @@
 #include "Display.h"
 #include "FileIO.h"
 #include "M42/m42.h"
-#include "../TurnHandler.h"
+#include "TurnHandler.h"
 
 int main() {
     M42::init();

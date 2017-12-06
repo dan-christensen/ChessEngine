@@ -11,7 +11,7 @@
 #include "Placement.h"
 #include "Utils.h"
 #include "Movement.h"
-#include "../TurnHandler.h"
+#include "TurnHandler.h"
 
 #include <string>
 #include <regex>
