@@ -12,8 +12,9 @@ int main() {
 
     bool isRunning = true;
 
-    while (isRunning){
+    while (isRunning) {
         game.draw();
+        isRunning = game.update();
     }
 
     return 0;

@@ -15,6 +15,8 @@ bool fileIO::parseFile(std::string move, std::vector<board*> allBoards, board* m
         return parsePlacement(input, allBoards, mainBoard, turn);
     } else if (std::regex_match(input, movementPattern)) {
         return paresMove(input, allBoards, mainBoard, turn);
+    } else if(input == "EXIT") {
+        return false;
     }
 
     return true;

@@ -82,8 +82,13 @@ bool gameHandler::init() {
 bool gameHandler::draw() {
     display.drawBoard(allBoards);
     std::cout << "It is " << colorEnum::colorToString(turn->getCurrentTurn()) << "'s turn to move." << std::endl;
+    return true;
+}
+
+bool gameHandler::update() {
     if (file.parseFile(file.getUserInput(), allBoards, mainBoard, turn)) {
         turn->changeTurn();
+        return true;
     }
     return false;
 }

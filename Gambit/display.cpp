@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "display.h"
+#include "TermColor/termcolor.hpp"
 
 
 display::display() {

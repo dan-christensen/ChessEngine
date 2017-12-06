@@ -14,6 +14,7 @@ class gameHandler {
 public:
     bool init();
     bool draw();
+    bool update();
 
     board *mainBoard;
     board *whitePawnBoard;
