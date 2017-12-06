@@ -50,7 +50,7 @@ bool display::drawBoard(unsigned long long board) {
         for (int j = index - 7; j <= index; ++j) {
 //            std::cout << bitboard[j] << " [" << j << "] ";
             if (bitboard[j]) {
-                std::cout << "1";
+                std::cout << "X";
             } else {
                 std::cout << "-";
             }

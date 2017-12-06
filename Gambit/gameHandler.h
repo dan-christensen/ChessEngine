@@ -23,6 +23,7 @@ public:
     board *whiteRookBoard;
     board *whiteQueenBoard;
     board *whiteKingBoard;
+
     board *blackPawnBoard;
     board *blackKnightBoard;
     board *blackBishopBoard;
@@ -31,6 +32,8 @@ public:
     board *blackKingBoard;
 
     std::vector<board*> allBoards;
+    std::vector<board*> allWhiteBoards;
+    std::vector<board*> allBlackBoards;
 
 private:
     display display;
