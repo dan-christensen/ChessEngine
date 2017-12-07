@@ -6,7 +6,7 @@
 #define GAMBIT_TURNHANDLER_H
 
 
-#include "Enums.h"
+#include "enums.h"
 
 class turnHandler {
 public:
