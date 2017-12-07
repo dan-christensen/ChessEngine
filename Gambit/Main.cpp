@@ -19,21 +19,21 @@ int main() {
 //        isRunning = game.update();
 //    }
 
-    Display d;
-    TurnHandler* t = new TurnHandler();
-    Board* mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
-    Board* testKnightBoard = new Board(WHITE, QUEEN, 0);
-    Board* testPawnBoard = new Board(BLACK, PAWN, 0);
-    testKnightBoard->placePiece("D", "4");
-    testPawnBoard->placePiece("E", "6");
-    std::vector<Board*> allBoards;
-    allBoards.push_back(testKnightBoard);
-    allBoards.push_back(testPawnBoard);
-    Utils::combineBoards(allBoards, mainBoard);
-    d.drawBoard(allBoards);
-    testKnightBoard->bitMask = M42::knight_attacks(Utils::getPieceLocation("D", "4"));
-    d.drawBoard(testKnightBoard->bitMask);
-    std::cout << std::bitset<64>(testKnightBoard->bitMask & mainBoard->board) << std::endl;
+//    Display d;
+//    TurnHandler* t = new TurnHandler();
+//    Board* mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
+//    Board* testKnightBoard = new Board(WHITE, QUEEN, 0);
+//    Board* testPawnBoard = new Board(BLACK, PAWN, 0);
+//    testKnightBoard->placePiece("D", "4");
+//    testPawnBoard->placePiece("E", "6");
+//    std::vector<Board*> allBoards;
+//    allBoards.push_back(testKnightBoard);
+//    allBoards.push_back(testPawnBoard);
+//    Utils::combineBoards(allBoards, mainBoard);
+//    d.drawBoard(allBoards);
+//    testKnightBoard->bitMask = M42::knight_attacks(Utils::getPieceLocation("D", "4"));
+//    d.drawBoard(testKnightBoard->bitMask);
+//    std::cout << std::bitset<64>(testKnightBoard->bitMask & mainBoard->board) << std::endl;
 
     return 0;
 }
