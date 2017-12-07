@@ -10,7 +10,7 @@
 #include <iostream>
 
 #include "board.h"
-#include "Enums.h"
+#include "enums.h"
 
 
 class display {
