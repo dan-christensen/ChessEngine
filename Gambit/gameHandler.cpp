@@ -80,7 +80,7 @@ bool gameHandler::init() {
 }
 
 bool gameHandler::draw() {
-    display.drawBoard(allBoards);
+    screen.drawBoard(allBoards);
     std::cout << "It is " << colorEnum::colorToString(turn->getCurrentTurn()) << "'s turn to move." << std::endl;
     return true;
 }

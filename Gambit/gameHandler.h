@@ -36,7 +36,7 @@ public:
     std::vector<board*> allBlackBoards;
 
 private:
-    display display;
+    display screen;
     fileIO file;
     turnHandler* turn;
 };
