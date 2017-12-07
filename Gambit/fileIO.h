@@ -6,7 +6,7 @@
 #define GAMBIT_FILEIO_H
 
 
-#include "Enums.h"
+#include "enums.h"
 #include "board.h"
 #include "placement.h"
 #include "utils.h"
