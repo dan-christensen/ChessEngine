@@ -5,7 +5,7 @@
 #ifndef GAMBIT_BOARD_H
 #define GAMBIT_BOARD_H
 
-#include "Enums.h"
+#include "enums.h"
 
 #include <bitset>
 #include <vector>
