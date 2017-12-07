@@ -7,7 +7,7 @@
 
 
 #include <vector>
-#include "Enums.h"
+#include "enums.h"
 #include "board.h"
 
 class utils {
