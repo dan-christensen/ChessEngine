@@ -14,10 +14,10 @@ int main() {
 
     bool isRunning = true;
 
-//    while (isRunning) {
-//        game.draw();
-//        isRunning = game.update();
-//    }
+    while (isRunning) {
+        game.draw();
+        isRunning = game.update();
+    }
 
 //    Display d;
 //    TurnHandler* t = new TurnHandler();
