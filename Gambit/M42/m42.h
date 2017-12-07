@@ -134,7 +134,7 @@ namespace M42 {
 
     inline uint64_t byteswap(uint64_t b) {
 #ifdef USE_INTRIN
-        return _byteswap_uint64(b);
+        return _byteswap_uint64(board);
 #else
         b = ((b >> 8) & 0x00FF00FF00FF00FFULL) | ((b & 0x00FF00FF00FF00FFULL) << 8);
         b = ((b >> 16) & 0x0000FFFF0000FFFFULL) | ((b & 0x0000FFFF0000FFFFULL) << 16);

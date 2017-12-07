@@ -9,15 +9,15 @@
 #include <vector>
 #include <iostream>
 
-#include "board.h"
-#include "enums.h"
+#include "Board.h"
+#include "Enums.h"
 
 
-class display {
+class Display {
 public:
-    display();
+    Display();
     bool drawBoard(unsigned long long board);
-    bool drawBoard(std::vector<board*> allBoards);
+    bool drawBoard(std::vector<Board*> allBoards);
 
 private:
     class Square {
@@ -29,7 +29,7 @@ private:
         std::string file;
     };
 
-    std::string getPieceToken(color color, piece piece);
+    std::string getPieceToken(Color color, Piece piece);
 
     std::string VERTICAL_BAR;
     std::string VERTICAL_BAR_BOARDER;

@@ -7,7 +7,7 @@
 
 #include <string>
 
-enum piece {
+enum Piece {
     PAWN,
     KNIGHT,
     BISHOP,
@@ -17,18 +17,18 @@ enum piece {
     PIECE_DEFAULT
 };
 
-class pieceEnum {
+class PieceEnum {
 public:
     static std::string pieceToString(int id);
 };
 
-enum color {
+enum Color {
     WHITE,
     BLACK,
     COLOR_DEFAULT
 };
 
-class colorEnum {
+class ColorEnum {
 public:
     static std::string colorToString(int id);
 };

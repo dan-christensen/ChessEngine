@@ -2,27 +2,27 @@
 // Created by Dan on 12/6/2017.
 //
 
-#include "gameHandler.h"
+#include "GameHandler.h"
 
-bool gameHandler::init() {
+bool GameHandler::init() {
 
-    turn = new turnHandler();
+    turn = new TurnHandler();
 
-    mainBoard = new board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
+    mainBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
 
-    whitePawnBoard = new board(WHITE, PAWN, 0);
-    whiteKnightBoard = new board(WHITE, KNIGHT, 0);
-    whiteBishopBoard = new board(WHITE, BISHOP, 0);
-    whiteRookBoard = new board(WHITE, ROOK, 0);
-    whiteQueenBoard = new board(WHITE, QUEEN, 0);
-    whiteKingBoard = new board(WHITE, KING, 0);
+    whitePawnBoard = new Board(WHITE, PAWN, 0);
+    whiteKnightBoard = new Board(WHITE, KNIGHT, 0);
+    whiteBishopBoard = new Board(WHITE, BISHOP, 0);
+    whiteRookBoard = new Board(WHITE, ROOK, 0);
+    whiteQueenBoard = new Board(WHITE, QUEEN, 0);
+    whiteKingBoard = new Board(WHITE, KING, 0);
 
-    blackPawnBoard = new board(BLACK, PAWN, 0);
-    blackKnightBoard = new board(BLACK, KNIGHT, 0);
-    blackBishopBoard = new board(BLACK, BISHOP, 0);
-    blackRookBoard = new board(BLACK, ROOK, 0);
-    blackQueenBoard = new board(BLACK, QUEEN, 0);
-    blackKingBoard = new board(BLACK, KING, 0);
+    blackPawnBoard = new Board(BLACK, PAWN, 0);
+    blackKnightBoard = new Board(BLACK, KNIGHT, 0);
+    blackBishopBoard = new Board(BLACK, BISHOP, 0);
+    blackRookBoard = new Board(BLACK, ROOK, 0);
+    blackQueenBoard = new Board(BLACK, QUEEN, 0);
+    blackKingBoard = new Board(BLACK, KING, 0);
 
     allBoards.push_back(whitePawnBoard);
     allBoards.push_back(whiteKnightBoard);
@@ -38,7 +38,7 @@ bool gameHandler::init() {
     allBoards.push_back(blackQueenBoard);
     allBoards.push_back(blackKingBoard);
 
-    //placement
+    //Placement
     file.parseFile("RLA1", allBoards, mainBoard, turn);
     file.parseFile("NLB1", allBoards, mainBoard, turn);
     file.parseFile("BLC1", allBoards, mainBoard, turn);
@@ -79,13 +79,13 @@ bool gameHandler::init() {
     return true;
 }
 
-bool gameHandler::draw() {
+bool GameHandler::draw() {
     screen.drawBoard(allBoards);
-    std::cout << "It is " << colorEnum::colorToString(turn->getCurrentTurn()) << "'s turn to move." << std::endl;
+    std::cout << "It is " << ColorEnum::colorToString(turn->getCurrentTurn()) << "'s turn to move." << std::endl;
     return true;
 }
 
-bool gameHandler::update() {
+bool GameHandler::update() {
     if (file.parseFile(file.getUserInput(), allBoards, mainBoard, turn)) {
         turn->changeTurn();
         return true;

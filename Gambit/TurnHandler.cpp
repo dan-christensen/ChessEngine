@@ -2,17 +2,17 @@
 // Created by Dan on 12/3/2017.
 //
 
-#include "turnHandler.h"
+#include "TurnHandler.h"
 
-turnHandler::turnHandler() {
+TurnHandler::TurnHandler() {
     this->currentTurn = WHITE;
 }
 
-color turnHandler::getCurrentTurn() {
+Color TurnHandler::getCurrentTurn() {
     return currentTurn;
 }
 
-bool turnHandler::changeTurn() {
+bool TurnHandler::changeTurn() {
     if (currentTurn == WHITE) {
         currentTurn = BLACK;
     } else if (currentTurn == BLACK) {

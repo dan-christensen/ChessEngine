@@ -2,9 +2,9 @@
 // Created by Dan on 11/15/2017.
 //
 
-#include "utils.h"
+#include "Utils.h"
 
-piece utils::getPiece(char pieceToken) {
+Piece Utils::getPiece(char pieceToken) {
     switch (pieceToken) {
         case 'P':
         case 'p':
@@ -30,7 +30,7 @@ piece utils::getPiece(char pieceToken) {
     }
 }
 
-color utils::getColor(char colorToken) {
+Color Utils::getColor(char colorToken) {
     switch (colorToken) {
         case 'L':
         case 'l':
@@ -43,16 +43,16 @@ color utils::getColor(char colorToken) {
     }
 }
 
-bool utils::combineBoards(std::vector<board*> allBoards, board* mainBoard) {
-    mainBoard->b = 0;
-    for (board* board : allBoards) {
-        mainBoard->b |= board->b;
+bool Utils::combineBoards(std::vector<Board*> allBoards, Board* mainBoard) {
+    mainBoard->board = 0;
+    for (Board* board : allBoards) {
+        mainBoard->board |= board->board;
     }
     mainBoard->setBitBoard();
     return true;
 }
 
-board* utils::getBoard(std::vector<board*> allBoards, color color, piece piece) {
+Board* Utils::getBoard(std::vector<Board*> allBoards, Color color, Piece piece) {
     for (auto&& board : allBoards) {
         if (board->boardColor == color && board->boardType == piece) {
             return board;
@@ -62,7 +62,7 @@ board* utils::getBoard(std::vector<board*> allBoards, color color, piece piece) 
     return nullptr;
 }
 
-int utils::getPieceLocation(std::string rank, std::string file) {
+int Utils::getPieceLocation(std::string rank, std::string file) {
     int a = 0;
     int b = a + 1;
     int c = a + 2;
@@ -76,7 +76,7 @@ int utils::getPieceLocation(std::string rank, std::string file) {
     int localFile = 0;
 
     if (rank == "A" || rank == "a") localRank = a;
-    if (rank == "B" || rank == "b") localRank = b;
+    if (rank == "B" || rank == "board") localRank = b;
     if (rank == "C" || rank == "c") localRank = c;
     if (rank == "D" || rank == "d") localRank = d;
     if (rank == "E" || rank == "e") localRank = e;
@@ -102,7 +102,7 @@ int utils::getPieceLocation(std::string rank, std::string file) {
     return location;
 }
 
-bool utils::isSpaceClear(int position, unsigned long long board) {
+bool Utils::isSpaceClear(int position, unsigned long long board) {
     unsigned long long flag = 0;
     flag |= 1Ull << position;
 

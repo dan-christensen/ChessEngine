@@ -6,16 +6,16 @@
 #define GAMBIT_TURNHANDLER_H
 
 
-#include "enums.h"
+#include "Enums.h"
 
-class turnHandler {
+class TurnHandler {
 public:
-    turnHandler();
-    color  getCurrentTurn();
+    TurnHandler();
+    Color  getCurrentTurn();
     bool changeTurn();
 
 private:
-    color currentTurn;
+    Color currentTurn;
 
 };
 

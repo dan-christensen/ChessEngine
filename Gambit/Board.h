@@ -5,23 +5,23 @@
 #ifndef GAMBIT_BOARD_H
 #define GAMBIT_BOARD_H
 
-#include "enums.h"
+#include "Enums.h"
 
 #include <bitset>
 #include <vector>
 
 
-class board {
+class Board {
 public:
-    piece boardType;
-    color boardColor;
+    Piece boardType;
+    Color boardColor;
 
-    unsigned long long b;
+    unsigned long long board;
     unsigned long long bitMask;
     std::bitset<64> bitBoard;
 
-    board();
-    board(color boardColor, piece boardType, unsigned long long boardValue);
+    Board();
+    Board(Color boardColor, Piece boardType, unsigned long long boardValue);
     bool setBitBoard();
     bool setBitMask(unsigned long long bitMask);
     bool placePiece(std::string rank, std::string file);
