@@ -76,6 +76,19 @@ bool GameHandler::init() {
     file.parseFile("PDG7", allBoards, mainBoard, turn);
     file.parseFile("PDH7", allBoards, mainBoard, turn);
 
+
+    for (Board* board : allBoards) {
+        if (board->boardColor == WHITE) {
+            allWhiteBoards.push_back(board);
+        } else if (board->boardColor == BLACK) {
+            allBlackBoards.push_back(board);
+        }
+    }
+
+    Utils::combineBoards(allBoards, mainBoard);
+    Utils::combineBoards(allWhiteBoards, whiteBoard);
+    Utils::combineBoards(allBlackBoards, blackBoard);
+
     return true;
 }
 

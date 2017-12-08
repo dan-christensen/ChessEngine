@@ -16,24 +16,27 @@ public:
     bool draw();
     bool update();
 
-    Board *mainBoard;
-    Board *whitePawnBoard;
-    Board *whiteKnightBoard;
-    Board *whiteBishopBoard;
-    Board *whiteRookBoard;
-    Board *whiteQueenBoard;
-    Board *whiteKingBoard;
+    Board* mainBoard;
+    Board* whitePawnBoard;
+    Board* whiteKnightBoard;
+    Board* whiteBishopBoard;
+    Board* whiteRookBoard;
+    Board* whiteQueenBoard;
+    Board* whiteKingBoard;
 
-    Board *blackPawnBoard;
-    Board *blackKnightBoard;
-    Board *blackBishopBoard;
-    Board *blackRookBoard;
-    Board *blackQueenBoard;
-    Board *blackKingBoard;
+    Board* blackPawnBoard;
+    Board* blackKnightBoard;
+    Board* blackBishopBoard;
+    Board* blackRookBoard;
+    Board* blackQueenBoard;
+    Board* blackKingBoard;
 
     std::vector<Board*> allBoards;
     std::vector<Board*> allWhiteBoards;
     std::vector<Board*> allBlackBoards;
+
+    Board* whiteBoard;
+    Board* blackBoard;
 
 private:
     Display screen;

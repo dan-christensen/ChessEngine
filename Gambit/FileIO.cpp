@@ -15,11 +15,12 @@ bool FileIO::parseFile(std::string move, std::vector<Board*> allBoards, Board* m
         return parsePlacement(input, allBoards, mainBoard, turn);
     } else if (std::regex_match(input, movementPattern)) {
         return paresMove(input, allBoards, mainBoard, turn);
-    } else if(input == "EXIT") {
+    } else {
+        std::cout << "ERROR: Invalid input." << std::endl;
         return false;
     }
 
-    return true;
+    return false;
 }
 
 bool FileIO::parsePlacement(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
@@ -32,7 +33,7 @@ bool FileIO::paresMove(std::string move, std::vector<Board*> allBoards, Board* m
 
 std::string FileIO::getUserInput() {
     std::string rVal;
-    std::cout <<  "Please enter a move: ";
+    std::cout << "Please enter a move: ";
     std::cin >> rVal;
     std::cout << std::endl;
     return rVal;
