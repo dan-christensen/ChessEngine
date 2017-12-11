@@ -23,7 +23,7 @@ public:
     Board();
     Board(Color boardColor, Piece boardType, unsigned long long boardValue);
     bool setBitBoard();
-    bool setBitMask(unsigned long long bitMask);
+    bool setBitMask(Board* mainBoard, std::string rank, std::string file);
     bool placePiece(std::string rank, std::string file);
     bool removePiece(std::string rank, std::string file);
     bool movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile);

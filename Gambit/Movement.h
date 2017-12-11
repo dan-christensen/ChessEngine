@@ -14,5 +14,4 @@ public:
     bool movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn);
 };
 
-
 #endif //GAMBIT_MOVEMENT_H

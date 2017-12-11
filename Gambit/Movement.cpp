@@ -4,6 +4,7 @@
 
 #include "Movement.h"
 #include "Utils.h"
+#include "M42/m42.h"
 
 bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
     Board* startBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
@@ -38,14 +39,20 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
         }
     }
 
+    startBoard->setBitMask(mainBoard, startRank, startFile);
+    endBoard->setBitMask(mainBoard, endRank, endFile);
+
     if (startBoard->boardColor == COLOR_DEFAULT) {
         return false;
     }
-    if (startBoard->boardColor != turn->getCurrentTurn()){
+    if (startBoard->boardColor != turn->getCurrentTurn()) {
         return false;
     }
     if (startColor == endColor) {
         return false;
+    }
+    if (startBoard->bitMask & endBoard->board) {
+
     }
 
     if (startColor != endColor) {

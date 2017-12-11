@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Board.h"
 #include "Utils.h"
+#include "M42/m42.h"
 
 Board::Board() {
     board = 0;
@@ -23,8 +24,25 @@ bool Board::setBitBoard() {
     return true;
 }
 
-bool Board::setBitMask(unsigned long long bitMask) {
-    this->bitMask = bitMask;
+bool Board::setBitMask(Board* mainBoard, std::string rank, std::string file) {
+    if (this->boardType == PAWN) {
+        this->bitMask = M42::pawn_attacks(this->boardColor, Utils::getPieceLocation(rank, file));
+    }
+    if (this->boardType == KNIGHT) {
+        this->bitMask = M42::knight_attacks(Utils::getPieceLocation(rank, file));
+    }
+    if (this->boardType == BISHOP) {
+        this->bitMask = M42::bishop_attacks(Utils::getPieceLocation(rank, file), mainBoard->board);
+    }
+    if (this->boardType == ROOK) {
+        this->bitMask = M42::rook_attacks(Utils::getPieceLocation(rank, file), mainBoard->board);
+    }
+    if (this->boardType == QUEEN) {
+        this->bitMask = M42::queen_attacks(Utils::getPieceLocation(rank, file), mainBoard->board);
+    }
+    if (this->boardType == KING) {
+        this->bitMask = M42::king_attacks(Utils::getPieceLocation(rank, file));
+    }
     return true;
 }
 
