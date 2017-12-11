@@ -15,6 +15,7 @@ public:
     bool init();
     bool draw();
     bool update();
+    bool hasWon();
 
     Board* mainBoard;
     Board* whitePawnBoard;

@@ -5,6 +5,7 @@
 
 #include "Display.h"
 #include "TermColor/termcolor.hpp"
+#include "Utils.h"
 
 
 Display::Display() {
@@ -64,7 +65,6 @@ bool Display::drawBoard(unsigned long long board) {
 }
 
 bool Display::drawBoard(std::vector<Board*> allBoards) {
-
     std::vector<Square*> boardToDraw;
     std::string r = "A";
     std::string f = "1";
@@ -122,7 +122,7 @@ bool Display::drawBoard(std::vector<Board*> allBoards) {
     }
     std::cout << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER << HORIZONTAL_BAR_BOARDER
               << BOTTOM_LEFT_CORNER_BOARDER << std::endl;
-    std::cout << "    A   B   C   D   E   F   G    H" << std::endl;
+    std::cout << "    A   B   C   D   E   F   G   H" << std::endl;
 
     return true;
 }

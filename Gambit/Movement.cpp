@@ -23,8 +23,8 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
     std::string endRank = move.substr(2, 1);
     std::string endFile = move.substr(3, 1);
 
-    startBoard->placePiece(startRank, startFile);
-    endBoard->placePiece(endRank, endFile);
+    startBoard->placePiece(mainBoard,startRank, startFile);
+    endBoard->placePiece(mainBoard, endRank, endFile);
 
     for (Board* board : allBoards) {
         unsigned long long tempStart = startBoard->board & board->board;
@@ -43,8 +43,6 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
 
     startBoard->setBitMask(mainBoard, startRank, startFile);
     endBoard->setBitMask(mainBoard, endRank, endFile);
-    Display d;
-    d.drawBoard(startBoard->bitMask);
 
     if (startBoard->boardColor == COLOR_DEFAULT) {
         return false;
@@ -55,21 +53,19 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
     if (startColor == endColor) {
         return false;
     }
+
     if (startPiece != PAWN) {
         if (!(endBoard->board & startBoard->bitMask)) {
-            std::cout << "HIT" << std::endl;
             return false;
         }
-    } else if (startPiece == PAWN) {
-
     }
 
     // Reaches here only if the end space is taken by a opposite color piece
     if (startColor != endColor) {
         endBoard->removePiece(endRank, endFile);
-        startBoard->movePiece(startRank, startFile, endRank, endFile);
+        startBoard->movePiece(mainBoard, startRank, startFile, endRank, endFile);
     } else {
-        startBoard->movePiece(startRank, startFile, endRank, endFile);
+        startBoard->movePiece(mainBoard, startRank, startFile, endRank, endFile);
     }
 
     Utils::combineBoards(allBoards, mainBoard);

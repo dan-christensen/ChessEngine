@@ -17,6 +17,7 @@ public:
     static bool combineBoards(std::vector<Board*> allBoards, Board* mainBoard);
     static Board* getBoard(std::vector<Board*> allBoards, Color color, Piece piece);
     static int getPieceLocation(std::string rank, std::string file);
+    static std::string pieceLocationToMove(int location);
     static bool isSpaceClear(int position, unsigned long long board);
 };
 

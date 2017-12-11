@@ -105,3 +105,17 @@ bool GameHandler::update() {
     }
     return false;
 }
+
+bool GameHandler::hasWon() {
+
+    if (whiteKingBoard->board == 0) {
+        std::cout << "Black Wins!" << std::endl;
+        return true;
+    }
+    if (blackKingBoard->board == 0) {
+        std::cout << "White Wins!" << std::endl;
+        return true;
+    }
+
+    return false;
+}

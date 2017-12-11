@@ -11,6 +11,7 @@
 
 #include "Board.h"
 #include "Enums.h"
+#include "TurnHandler.h"
 
 
 class Display {

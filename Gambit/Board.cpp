@@ -46,12 +46,13 @@ bool Board::setBitMask(Board* mainBoard, std::string rank, std::string file) {
     return true;
 }
 
-bool Board::placePiece(std::string rank, std::string file) {
+bool Board::placePiece(Board* mainBoard, std::string rank, std::string file) {
     unsigned long long piece = 0;
     int position = Utils::getPieceLocation(rank, file);
     piece |= 1ULL << position;
 
     this->board |= piece;
+    this->setBitMask(mainBoard, rank, file);
     this->setBitBoard();
     return true;
 }
@@ -66,10 +67,11 @@ bool Board::removePiece(std::string rank, std::string file) {
     return true;
 }
 
-bool Board::movePiece(std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
-    this->placePiece(endRank, endFile);
+bool Board::movePiece(Board* mainBoard, std::string startRank, std::string startFile, std::string endRank, std::string endFile) {
+    this->placePiece(mainBoard, endRank, endFile);
     this->removePiece(startRank, startFile);
 
+    this->setBitMask(mainBoard, endRank, endFile);
     this->setBitBoard();
     return true;
 }

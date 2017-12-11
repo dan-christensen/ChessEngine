@@ -2,6 +2,7 @@
 // Created by Dan on 11/15/2017.
 //
 
+#include <iostream>
 #include "Utils.h"
 
 Piece Utils::getPiece(char pieceToken) {
@@ -107,4 +108,37 @@ bool Utils::isSpaceClear(int position, unsigned long long board) {
     flag |= 1Ull << position;
 
     return (board & flag) == 0;
+}
+
+std::string Utils::pieceLocationToMove(int location) {
+    int file;
+    std::string rVal = "";
+
+    file = location % 8;
+    if (location >=0 && location <= 7) {
+        rVal += "A" + std::to_string(file + 1);
+    }
+    else if (location >= 8 & location <=15) {
+        rVal += "B" + std::to_string(file + 1);
+    }
+    else if (location >= 16 & location <=23) {
+        rVal += "C" + std::to_string(file + 1);
+    }
+    else if (location >= 24 & location <=31) {
+        rVal += "D" + std::to_string(file + 1);
+    }
+    else if (location >= 32 & location <= 39) {
+        rVal += "E" + std::to_string(file + 1);
+    }
+    else if (location >= 40 & location <= 47) {
+        rVal += "F" + std::to_string(file + 1);
+    }
+    else if (location >= 48 & location <= 55) {
+        rVal += "G" + std::to_string(file + 1);
+    }
+    else if (location >= 56) {
+        rVal += "H" + std::to_string(file + 1);
+    }
+
+    return rVal;
 }

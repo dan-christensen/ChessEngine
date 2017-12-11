@@ -1,8 +1,5 @@
-//TODO: Finish movement check if space is available or if it is the opposite color.
-//TODO: For Movement check if path is clear and if the end space is clear.
-//TODO: For capture, just check if the path is clear and that the end space is an enemy.
-//TODO: Combine white/black boards.
-//TODO: Make the Board drawing abstract.
+//TODO: Check/Checkmate, non-exposure moves
+//TODO: Display available piece moves
 
 #include "M42/m42.h"
 #include "GameHandler.h"
@@ -17,6 +14,7 @@ int main() {
     while (isRunning) {
         game.draw();
         game.update();
+        isRunning = !game.hasWon();
     }
 
 //    Display display;

@@ -23,7 +23,7 @@ bool Placement::placePiece(std::string move, std::vector<Board*> allBoards, Boar
         return false;
     }
 
-    board->placePiece(rank, file);
+    board->placePiece(mainBoard, rank, file);
     Utils::combineBoards(allBoards, mainBoard);
 
     return true;
