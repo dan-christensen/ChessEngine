@@ -2,9 +2,11 @@
 // Created by Dan on 11/15/2017.
 //
 
+#include <iostream>
 #include "Movement.h"
 #include "Utils.h"
 #include "M42/m42.h"
+#include "Display.h"
 
 bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board* mainBoard, TurnHandler* turn) {
     Board* startBoard = new Board(COLOR_DEFAULT, PIECE_DEFAULT, 0);
@@ -41,6 +43,8 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
 
     startBoard->setBitMask(mainBoard, startRank, startFile);
     endBoard->setBitMask(mainBoard, endRank, endFile);
+    Display d;
+    d.drawBoard(startBoard->bitMask);
 
     if (startBoard->boardColor == COLOR_DEFAULT) {
         return false;
@@ -51,10 +55,16 @@ bool Movement::movePiece(std::string move, std::vector<Board*> allBoards, Board*
     if (startColor == endColor) {
         return false;
     }
-    if (startBoard->bitMask & endBoard->board) {
+    if (startPiece != PAWN) {
+        if (!(endBoard->board & startBoard->bitMask)) {
+            std::cout << "HIT" << std::endl;
+            return false;
+        }
+    } else if (startPiece == PAWN) {
 
     }
 
+    // Reaches here only if the end space is taken by a opposite color piece
     if (startColor != endColor) {
         endBoard->removePiece(endRank, endFile);
         startBoard->movePiece(startRank, startFile, endRank, endFile);
